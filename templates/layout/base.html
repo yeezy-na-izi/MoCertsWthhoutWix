@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertificat</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+{% block body_class %}
+<body class="common">
+{% endblock %}
+    <header class="header">
+        <div class="header-wrap-bg">
+            <div class="container">
+                <div class="header-wrap">
+                    <div class="logo">
+                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                    </div>
+                    <div class="logo-content">
+                        <div class="text">Marilyn Monroe</div>
+                        <img src="{% static 'img/monro.png' %}" alt="foto">
+                    </div>
+                    <div class="profile-header-block">
+                        {% if user.is_authenticated %}
+                            <a class="username" href="{% url 'main:profile' pk=user.pk %}">{{ user.username }}</a>
+                            <a class="balance" href="{% url 'main:profile' pk=user.pk %}">{{ user.mycertsuser.balance }}$</a>
+                        {% else %}
+                            <a class="login" href="{% url 'main:login' %}">Login</a>
+                        {% endif %}
+                    </div>
+                    <div class="header-select">
+                        <div class="select">
+                            <div class="EN">
+                                <img src="{% static 'img/GBR.png' %}" alt="en">
+                                <span>EN</span>
+                                <span class="arrow"></span>
+                            </div>
+                            <div class="select-list">
+                                <div class="RU"><img src="{% static 'img/RUS.png' %}" alt="ru"><span>RU</span></div>
+                                <div class="DE"><img src="{% static 'img/DEU.png' %}" alt="de"><span>DE</span></div>
+                                <div class="FR"><img src="{% static 'img/FRA.png' %}" alt="fr"><span>FR</span></div>
+                                <div class="ES"><img src="{% static 'img/ESP.png' %}" alt="el"><span>ES</span></div>
+                                <div class="EL"><img src="{% static 'img/GRC.png' %}" alt="el"><span>EL</span></div>
+                                <div class="IT"><img src="{% static 'img/ITA.png' %}" alt="es"><span>IT</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="menu">
+        <div class="container">
+            <div class="menu-wrap">
+                <ul class="list-item">
+                    {% block header_links %}
+                        <li class="menu-link"><a href="#">Home</a></li>
+                        <li class="menu-link"><a href="#">Create certificate</a></li>
+                        <li class="menu-link"><a href="#">My certificates</a></li>
+                        <li class="menu-link"><a href="#">Instructions</a></li>
+                    {% endblock %}
+                </ul>
+            </div>
+            <div class="menu-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-wrap">
+                <div class="footer-adress">
+                    <span>АО MoCersts</span><br>
+                    г. Новосибирск, 630007
+                    Железнодорожный район,
+                    ​Советская, 5​1 офис 506
+                </div>
+                <div class="footer-icon">
+                    <div class="icon"><a href="#"><img src="{% static 'img/twitter.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="#"><img src="{% static 'img/inst.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="#"><img src="{% static 'img/vk.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="#"><img src="{% static 'img/facebook.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="#"><img src="{% static 'img/youtube.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="#"><img src="{% static 'img/yum.png' %}" alt="social"></a></div>
+                </div>
+                <div class="footer-doc">Лицензия №1609<br>
+                    от 05 марта 2021 года</div>
+            </div>
+            <div class="footer-copyright">© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com
+                Лицензия №1609
+            </div>
+        </div>
+    </footer>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+{% block body_class %}
+    <body>
+{% endblock %}
+{% block header_links %}
+    <li class="menu-link"><a class="active-link" href="#">Home</a></li>
+    <li class="menu-link"><a href="#">Create certificate</a></li>
+    <li class="menu-link"><a href="#">My certificates</a></li>
+    <li class="menu-link"><a href="#">Instructions</a></li>
+{% endblock %}
+{% block content %}
+    <div class="video-content">
+        <iframe src="https://www.youtube.com/embed/p29YU2UZOnM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="500" height="300" frameborder="0"></iframe>
+    </div>
+    <div class="video-btn">
+         <div class="btn-manual">read manual</div>
+         <div class="btn-instruction">instructions</div>
+    </div>
+{% endblock %}
