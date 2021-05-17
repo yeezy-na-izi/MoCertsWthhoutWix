@@ -1,11 +1,9 @@
 {% extends 'layout/base.html' %}
 {% block content %}
     <div class="register-block">
-        <form method="POST">
-            {% csrf_token %}
-            {{ mycertuser_form.as_p }}
-            {{ user_form.as_p }}
-            <input type="submit" value="Register">
-        </form>
+        <h1>Registration</h1>
+        <div class="profile-photo">
+            <img src="/media/profile.png" alt="">
+        </div>
     </div>
 {% endblock %}

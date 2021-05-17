@@ -14,6 +14,38 @@ body {
     width: 1200px;
     margin: 0 auto;
 }
+
+.register-block {
+    width: 723px;
+    height: 1023px;
+    background: url(../img/register_bg.jpg) center center/cover no-repeat;
+}
+
+.register-block h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.register-block div.profile-photo {
+    margin-top: 30px;
+    margin-left: 85px;
+    width: 200px;
+    height: 200px;
+    border: 4px solid #9f7554;
+}
+
+.register-block div.profile-photo:hover {
+     border: 4px solid #de9459;
+    transition: 0.5s all;
+}
+
+.register-block div.profile-photo img{
+    width: 100%;
+    height: 100%;
+}
+
+
 .header-wrap-bg {
     width:1372px;
     height: 120px;
