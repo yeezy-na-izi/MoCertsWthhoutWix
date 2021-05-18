@@ -27,6 +27,34 @@ body {
     margin-top: 150px;
 }
 
+#id_profile_photo {
+    visibility: hidden;
+}
+
+.profile-data-register {
+    margin-left: 350px;
+}
+
+::placeholder {
+    vertical-align: center;
+    font-size: 24px;
+    font-family: "mon";
+}
+
+#id_first_name, #id_last_name, #id_username, #id_email, #id_password1, #id_password2  {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #de9459;
+    height: 30px;
+}
+
+#id_username, #id_email, #id_password1, #id_password2 {
+    width: 300px;
+}
+
+
+
+
 .register-block div.profile-photo {
     margin-top: 30px;
     margin-left: 85px;

@@ -3,7 +3,47 @@
     <div class="register-block">
         <h1>Registration</h1>
         <div class="profile-photo">
-            <img src="/media/profile.jpg" alt="">
+            <img class="profile-photo_img" src="/media/profile.jpg" alt="">
         </div>
+        <form action="{% url 'main:registration' %}" method="post">
+            {% csrf_token %}
+            <div class="profile-data-register">
+                <p>{{ mycertuser_form.profile_photo }}</p>
+                <p>{{ user_form.first_name }} {{ user_form.last_name }}</p>
+                <p>{{ user_form.username }}</p>
+                <p>{{ user_form.email }}</p>
+                <p>{{ user_form.password1 }}</p>
+                <p>{{ user_form.password2 }}</p>
+                <p><input type="submit" value="Register"></p>
+            </div>
+        </form>
     </div>
+{% endblock %}
+{% block script %}
+    <script>
+        window.addEventListener('load', init, false);
+        function init(e) {
+            let profile_photo = document.getElementsByClassName('profile-photo');
+            if (profile_photo) {
+                profile_photo[0].addEventListener('click', addPhoto, false);
+            }
+            let input_photo  = document.getElementById('id_profile_photo');
+            input_photo.addEventListener('change', changePhoto, false);
+        }
+        function  addPhoto(e) {
+            let input_photo  = document.getElementById('id_profile_photo');
+            input_photo.click();
+        }
+        function changePhoto(e) {
+            let input_photo  = document.getElementById('id_profile_photo');
+            let profile_photo_img = document.getElementsByClassName('profile-photo_img')[0]
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                profile_photo_img.src = e.target.result;
+            };
+            reader.readAsDataURL(input_photo.files[0]);
+        }
+
+    </script>
 {% endblock %}
