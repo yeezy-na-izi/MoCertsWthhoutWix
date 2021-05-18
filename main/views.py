@@ -60,3 +60,7 @@ def profile_view(request, pk):
         context = {'object': request.user}
         return render(request, template_name='profile.html', context=context)
     return HttpResponseNotFound('<h1>Page not found</h1>')
+
+
+class ManualView(TemplateView):
+    template_name = 'manual.html'

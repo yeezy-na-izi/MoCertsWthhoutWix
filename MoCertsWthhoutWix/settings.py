@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    'easy_thumbnails'
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,13 @@ LOGOUT_REDIRECT_URL = 'main:main_page'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+THUMBNAIL_ALIASES = {
+    'main.MyCertsUser.profile_photo':
+        {
+            'small': {
+                'size': (50, 50),
+                'crop': 'smart'
+            }
+        }
+}
