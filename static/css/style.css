@@ -339,7 +339,7 @@ ul,li {
 
 
 .menu-content{
-    width: 800px;
+    width: 1000px;
     display: flex;
     margin: 0 auto;
     padding-top: 70px;
@@ -426,11 +426,14 @@ ul,li {
 .menu-documents a {
     color: #000000;
 }
-.documents .documents-title{
+.documents-title{
    text-align: center;
    font-size: 20px;
    padding: 30px;
-}
+    width: 100%}
+
+
+
 .documents-wrap {
     width: 1000px;
     margin: 0 auto;

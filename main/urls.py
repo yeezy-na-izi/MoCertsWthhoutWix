@@ -1,6 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
-from main.views import MainView, profile_view, RegisterFormView, MyCertsLoginView, register, ManualView
+from main.views import MainView, profile_view, RegisterFormView, MyCertsLoginView, register, ManualView, \
+    SelectCertificateView
 
 app_name = 'main'
 urlpatterns = [
@@ -10,4 +11,5 @@ urlpatterns = [
     path('profile/<int:pk>/', profile_view, name='profile'),
     path('registration', register, name='registration'),
     path('manual', ManualView.as_view(), name='manual'),
+    path('select_certificate', SelectCertificateView.as_view() , name='select_certificate')
 ]

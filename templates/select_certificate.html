@@ -1,0 +1,53 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block header_links %}
+    <li class="menu-link"><a href="{% url 'main:main_page' %}">Home</a></li>
+    <li class="menu-link"><a class="active-link" href="{% url 'main:select_certificate' %}">Create certificate</a></li>
+    <li class="menu-link"><a href="#">My certificates</a></li>
+    <li class="menu-link"><a  href="{% url 'main:manual' %}">Instructions</a></li>
+{% endblock %}
+{% block content %}
+    <div class="documents-title">To create a new certificate just click on the image with the price you are interested in</div>
+    <div class="documents-wrap">
+        <div class="documents-item">
+            <a href="#">
+                <img src="{% static 'img/sert-1.png' %}" alt="">
+            </a>
+        </div>
+        <div class="documents-item">
+            <a href="#">
+                <img src="{% static 'img/sert-2.png' %}" alt="">
+            </a>
+        </div>
+        <div class="documents-item">
+            <a href="#">
+                <img src="{% static 'img/sert-3.png' %}" alt="">
+            </a>
+        </div>
+        <div class="documents-item">
+            <a href="#">
+                <img src="{% static 'img/sert-4.png' %}" alt="">
+            </a>
+        </div>
+        <div class="documents-item">
+            <a href="#">
+                <img src="{% static 'img/sert-5.png' %}" alt="">
+            </a>
+        </div>
+        <div class="documents-item">
+            <a href="#">
+                <img src="{% static 'img/sert-6.png' %}" alt="">
+            </a>
+        </div>
+        <div class="documents-item">
+            <a href="#">
+                <img src="{% static 'img/sert-7.png' %}" alt="">
+            </a>
+        </div>
+        <div class="documents-item">
+            <a href="#">
+                <img src="{% static 'img/sert-8.png' %}" alt="">
+            </a>
+        </div>
+    </div>
+{% endblock %}

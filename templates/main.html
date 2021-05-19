@@ -4,7 +4,7 @@
 {% endblock %}
 {% block header_links %}
     <li class="menu-link"><a class="active-link" href="{% url 'main:main_page' %}">Home</a></li>
-    <li class="menu-link"><a href="#">Create certificate</a></li>
+    <li class="menu-link"><a href="{% url 'main:select_certificate' %}">Create certificate</a></li>
     <li class="menu-link"><a href="#">My certificates</a></li>
     <li class="menu-link"><a href="{% url 'main:manual' %}">Instructions</a></li>
 {% endblock %}

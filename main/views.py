@@ -64,3 +64,7 @@ def profile_view(request, pk):
 
 class ManualView(TemplateView):
     template_name = 'manual.html'
+
+
+class SelectCertificateView(TemplateView):
+    template_name = 'select_certificate.html'
