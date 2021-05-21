@@ -1,6 +1,6 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
-from main.views import MainView, profile_view, RegisterFormView, MyCertsLoginView, register, ManualView, \
+from main.views import MainView, profile_view, MyCertsLoginView, register, ManualView, \
     SelectCertificateView
 
 app_name = 'main'

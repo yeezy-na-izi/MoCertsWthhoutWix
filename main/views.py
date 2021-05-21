@@ -1,32 +1,24 @@
+from datetime import datetime
+
+from django.conf import settings
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, FormView
+from .certificates.certificate_generator import generate_certificate
 
 from main.forms import UserForm, MyCertUserForm
-from main.models import MyCertsUser
+from main.models import MyCertsUser, Certificate
+
+from .names.names_generator import false_user
 
 
 class MainView(TemplateView):
     template_name = 'main.html'
-
-
-class RegisterFormView(FormView):
-    form_class = UserForm
-    success_url = '/'
-    template_name = "registration.html"
-
-    def form_valid(self, form):
-        user = form.save()
-        mycertsuser = MyCertsUser(user=user)
-        mycertsuser.save()
-        return super(RegisterFormView, self).form_valid(form)
-
-    def form_invalid(self, form):
-        return super(RegisterFormView, self).form_invalid(form)
 
 
 def register(request):
@@ -68,3 +60,37 @@ class ManualView(TemplateView):
 
 class SelectCertificateView(TemplateView):
     template_name = 'select_certificate.html'
+
+
+@login_required
+def create_certificate(request, nominal):
+    if request.method == 'GET':
+        if request.user.mycertsuser.certificate:
+            return HttpResponseRedirect(reverse('main:certificate',
+                                                kwargs={'number': request.user.mycertsuser.certificate.number}))
+        number = datetime.today().strftime("%d%m%y%H%M%f")
+        url = '{}/certificate/{}'.format(settings.HOST, number)
+        user1_fullname = false_user()
+        user2_fullname = false_user()
+        user3_fullname = false_user()
+        user1 = User(username='FAKEUSER1_{}'.format(number),
+                     first_name=user1_fullname[0],
+                     last_name=user1_fullname[1])
+        user2 = User(username='FAKEUSER2_{}'.format(number),
+                     first_name=user2_fullname[0],
+                     last_name=user2_fullname[1])
+        user3 = User(username='FAKEUSER3_{}'.format(number),
+                     first_name=user3_fullname[0],
+                     last_name=user3_fullname[1])
+        user1.save()
+        user2.save()
+        user3.save()
+        image_certificate = generate_certificate(nominal, number, user1, user2, user3)
+        certificate = Certificate(number=number, url=url, nominal=nominal,
+                                  user1=user1, user2=user2, user3=user3, certificate_image=image_certificate)
+        certificate.save()
+        mycertuser = request.user.mycertsuser
+        mycertuser.certificate = certificate
+        mycertuser.save()
+        return HttpResponseRedirect(reverse('main:certificate',
+                                            kwargs={'number': request.user.mycertsuser.certificate.number}))
