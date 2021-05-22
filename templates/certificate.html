@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="big_certificate">
+        <img src="{{ certificate.certificate_image.url }}" alt="">
+    </div>
+    <div class="transfer_btn">
+        {% if transfer %}
+            <a href="{% url 'main:pay_certificate' pk=certificate.pk %}">
+                <img src="{% static 'img/transfer.webp' %}" alt="">
+            </a>
+        {% elif accept %}
+             <a href="{% url 'main:accept' pk=certificate.pk %}">
+                 <img src="{% static 'img/accept.png' %}" alt="accept.png">
+             </a>
+        {% else %}
+             <span>Скопируйте ссылку для отправки</span>
+        {% endif %}
+    </div>
+{% endblock %}

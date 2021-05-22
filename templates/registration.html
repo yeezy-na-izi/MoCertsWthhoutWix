@@ -5,7 +5,7 @@
         <div class="profile-photo">
             <img class="profile-photo_img" src="/media/profile.jpg" alt="">
         </div>
-        <form action="{% url 'main:registration' %}" method="post">
+        <form action="{% url 'main:registration' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="profile-data-register">
                 <p>{{ mycertuser_form.profile_photo }}</p>
