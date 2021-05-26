@@ -7,6 +7,7 @@
     <li class="menu-link"><a href="{% url 'main:manual' %}">Instructions</a></li>
 {% endblock %}
 {% block content %}
+    <span class="my-certs-disc">Для отправки сертификатов скопируйте ссылку и нажмите самолетик, выбрав социальную сеть. После того как человек получит и активирует его, статус меняется на получен, после оплаты на оплачен</span>
     {% if certificates_1 %}
         <div class="mesh_container">
             <div class="stack_imgs">
@@ -17,11 +18,16 @@
                 <img class="stack_imgs_5" src="{% static 'img/sert-1.png' %}" alt="">
             </div>
             <div class="cert_list">
-                <ol>
                     {% for cert in  certificates_1 %}
-                        <li>№{{ cert.number }} {{ cert.get_display_status }}</li>
+                        <div class="cert_row">
+                            <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
+                            <span>{{ cert.get_status_display }}</span>
+                            <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
+                                <div class="telegram-share"></div>
+                            </a>
+                        </div>
                     {% endfor %}
-                </ol>
+
             </div>
         </div>
     {% endif %}
@@ -55,6 +61,96 @@
             <div class="cert_list">
                 <ol>
                     {% for cert in  certificates_10 %}
+                        <li>№{{ cert.number }} {{ cert.get_status_display }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    {% endif %}
+    {% if certificates_20 %}
+        <div class="mesh_container">
+            <div class="stack_imgs">
+                <img class="stack_imgs_1" src="{% static 'img/sert-4.png' %}" alt="">
+                <img class="stack_imgs_2" src="{% static 'img/sert-4.png' %}" alt="">
+                <img class="stack_imgs_3" src="{% static 'img/sert-4.png' %}" alt="">
+                <img class="stack_imgs_4" src="{% static 'img/sert-4.png' %}" alt="">
+                <img class="stack_imgs_5" src="{% static 'img/sert-4.png' %}" alt="">
+            </div>
+            <div class="cert_list">
+                <ol>
+                    {% for cert in  certificates_20 %}
+                        <li>№{{ cert.number }} {{ cert.get_status_display }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    {% endif %}
+    {% if certificates_50 %}
+        <div class="mesh_container">
+            <div class="stack_imgs">
+                <img class="stack_imgs_1" src="{% static 'img/sert-5.png' %}" alt="">
+                <img class="stack_imgs_2" src="{% static 'img/sert-5.png' %}" alt="">
+                <img class="stack_imgs_3" src="{% static 'img/sert-5.png' %}" alt="">
+                <img class="stack_imgs_4" src="{% static 'img/sert-5.png' %}" alt="">
+                <img class="stack_imgs_5" src="{% static 'img/sert-5.png' %}" alt="">
+            </div>
+            <div class="cert_list">
+                <ol>
+                    {% for cert in  certificates_50 %}
+                        <li>№{{ cert.number }} {{ cert.get_status_display }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    {% endif %}
+    {% if certificates_100 %}
+        <div class="mesh_container">
+            <div class="stack_imgs">
+                <img class="stack_imgs_1" src="{% static 'img/sert-6.png' %}" alt="">
+                <img class="stack_imgs_2" src="{% static 'img/sert-6.png' %}" alt="">
+                <img class="stack_imgs_3" src="{% static 'img/sert-6.png' %}" alt="">
+                <img class="stack_imgs_4" src="{% static 'img/sert-6.png' %}" alt="">
+                <img class="stack_imgs_5" src="{% static 'img/sert-6.png' %}" alt="">
+            </div>
+            <div class="cert_list">
+                <ol>
+                    {% for cert in  certificates_100 %}
+                        <li>№{{ cert.number }} {{ cert.get_status_display }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    {% endif %}
+    {% if certificates_200 %}
+        <div class="mesh_container">
+            <div class="stack_imgs">
+                <img class="stack_imgs_1" src="{% static 'img/sert-7.png' %}" alt="">
+                <img class="stack_imgs_2" src="{% static 'img/sert-7.png' %}" alt="">
+                <img class="stack_imgs_3" src="{% static 'img/sert-7.png' %}" alt="">
+                <img class="stack_imgs_4" src="{% static 'img/sert-7.png' %}" alt="">
+                <img class="stack_imgs_5" src="{% static 'img/sert-7.png' %}" alt="">
+            </div>
+            <div class="cert_list">
+                <ol>
+                    {% for cert in  certificates_200 %}
+                        <li>№{{ cert.number }} {{ cert.get_status_display }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    {% endif %}
+    {% if certificates_500 %}
+        <div class="mesh_container">
+            <div class="stack_imgs">
+                <img class="stack_imgs_1" src="{% static 'img/sert-8.png' %}" alt="">
+                <img class="stack_imgs_2" src="{% static 'img/sert-8.png' %}" alt="">
+                <img class="stack_imgs_3" src="{% static 'img/sert-8.png' %}" alt="">
+                <img class="stack_imgs_4" src="{% static 'img/sert-8.png' %}" alt="">
+                <img class="stack_imgs_5" src="{% static 'img/sert-8.png' %}" alt="">
+            </div>
+            <div class="cert_list">
+                <ol>
+                    {% for cert in  certificates_500 %}
                         <li>№{{ cert.number }} {{ cert.get_status_display }}</li>
                     {% endfor %}
                 </ol>

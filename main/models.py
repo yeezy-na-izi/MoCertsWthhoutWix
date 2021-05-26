@@ -9,7 +9,7 @@ class MyCertsUser(models.Model):
     tlg_id = models.IntegerField(name='telegram_id', null=True, blank=True)
     phone = models.CharField(max_length=50, verbose_name='phone', null=True, blank=True)
     balance = models.DecimalField(max_digits=6, decimal_places=1, verbose_name='balance', blank=False, default=0)
-    certificate = models.ForeignKey('Certificate', on_delete=models.PROTECT, null=True, blank=True)
+    certificate = models.ForeignKey('Certificate', on_delete=models.SET_NULL, null=True, blank=True)
     profile_photo = models.ImageField(default='profile.jpg')
 
     def __str__(self):
@@ -18,10 +18,9 @@ class MyCertsUser(models.Model):
 
 class Certificate(models.Model):
     STATUS = [
+        ('NONE', ''),
         ('RECEIVED', 'Получен'),
-        ('NOSENT', 'Неотправлен'),
         ('PAID', 'Оплачен'),
-        ('SENT', 'Отправлен'),
     ]
     number = models.BigIntegerField(verbose_name='Номер сертификата')
     url = models.URLField(max_length=255, verbose_name='Ссылка на сертификат')
@@ -31,6 +30,6 @@ class Certificate(models.Model):
     user3 = models.ForeignKey(User, on_delete=models.PROTECT, related_name='third_users')
     published_date = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Опубликовано')
     certificate_image = models.ImageField(default=None)
-    made_by = models.ForeignKey(MyCertsUser, on_delete=models.PROTECT, default=None, null=True, blank=True,
+    made_by = models.ForeignKey(MyCertsUser, on_delete=models.SET_NULL, default=None, null=True, blank=True,
                                 related_name='made_by_user')
-    status = models.CharField(max_length=15, choices=STATUS, default='NOSENT')
+    status = models.CharField(max_length=15, choices=STATUS, default='NONE')

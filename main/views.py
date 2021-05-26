@@ -109,6 +109,9 @@ def certificate(request, number):
     if certificate.made_by == mycertuser:
         context = {'certificate': certificate}
         return render(request, template_name='certificate.html', context=context)
+    if certificate.status != '':
+        context = {'certificate': certificate}
+        return render(request, template_name='certificate.html', context=context)
     context = {'certificate': certificate, 'accept': True}
     return render(request, template_name='certificate.html', context=context)
 
@@ -134,7 +137,7 @@ def pay_certificate(request, pk):
             certificate.status = 'PAID'
             certificate.save()
             request.user.mycertsuser.certificate = None
-            for i in range(0, 4):
+            for i in range(0, 5):
                 user1, user2, user3 = certificate.user2, certificate.user3, request.user
                 number = datetime.today().strftime("%d%m%y%H%M%f")
                 image_certificate = generate_certificate(certificate.nominal, number, user1, user2, user3)
@@ -146,6 +149,8 @@ def pay_certificate(request, pk):
                 new_certificate.save()
             request.user.mycertsuser.save()
             return HttpResponseRedirect(reverse('main:my_certificates'))
+        else:
+            return HttpResponseRedirect(reverse('main:certificate', kwargs={'number': certificate.number}))
     return HttpResponseNotFound('<h1>Page not found</h1>')
 
 
@@ -168,7 +173,7 @@ def my_certificates(request):
         elif cert.nominal == 10:
             context['certificates_10'].append(cert)
         elif cert.nominal == 20:
-            context['certificates_10'].append(cert)
+            context['certificates_20'].append(cert)
         elif cert.nominal == 50:
             context['certificates_50'].append(cert)
         elif cert.nominal == 100:

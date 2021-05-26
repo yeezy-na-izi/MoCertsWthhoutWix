@@ -14,7 +14,13 @@
                  <img src="{% static 'img/accept.png' %}" alt="accept.png">
              </a>
         {% else %}
-             <span>Скопируйте ссылку для отправки</span>
+            {% if certificate.status == 'RECEIVED' %}
+                <span>Сертификат получен</span>
+            {% elif certificate.status == 'PAID' %}
+                <span>Сертификат оплачен</span>
+            {% else %}
+                <span>Скопируйте ссылку для отправки</span>
+            {% endif %}
         {% endif %}
     </div>
 {% endblock %}
