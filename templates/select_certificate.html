@@ -10,74 +10,42 @@
     <div class="documents-title">To create a new certificate just click on the image with the price you are interested in</div>
     <div class="documents-wrap">
         <div class="documents-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'main:create_certificate' nominal=1 %}">
-            {% else %}
-                <a href="{% url 'main:login' %}">
-            {% endif %}
+            <a href="{% url 'main:create_certificate' nominal=1 %}">
                 <img src="{% static 'img/sert-1.png' %}" alt="">
             </a>
         </div>
         <div class="documents-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'main:create_certificate' nominal=5 %}">
-            {% else %}
-                <a href="{% url 'main:login' %}">
-            {% endif %}
+            <a href="{% url 'main:create_certificate' nominal=5 %}">
                 <img src="{% static 'img/sert-2.png' %}" alt="">
             </a>
         </div>
         <div class="documents-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'main:create_certificate' nominal=10 %}">
-            {% else %}
-                <a href="{% url 'main:login' %}">
-            {% endif %}
+            <a href="{% url 'main:create_certificate' nominal=10 %}">
                 <img src="{% static 'img/sert-3.png' %}" alt="">
             </a>
         </div>
         <div class="documents-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'main:create_certificate' nominal=20 %}">
-            {% else %}
-                <a href="{% url 'main:login' %}">
-            {% endif %}
+            <a href="{% url 'main:create_certificate' nominal=20 %}">
                 <img src="{% static 'img/sert-4.png' %}" alt="">
             </a>
         </div>
         <div class="documents-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'main:create_certificate' nominal=50 %}">
-            {% else %}
-                <a href="{% url 'main:login' %}">
-            {% endif %}
+            <a href="{% url 'main:create_certificate' nominal=50 %}">
                 <img src="{% static 'img/sert-5.png' %}" alt="">
             </a>
         </div>
         <div class="documents-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'main:create_certificate' nominal=100 %}">
-            {% else %}
-                <a href="{% url 'main:login' %}">
-            {% endif %}
+            <a href="{% url 'main:create_certificate' nominal=100 %}">
                 <img src="{% static 'img/sert-6.png' %}" alt="">
             </a>
         </div>
         <div class="documents-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'main:create_certificate' nominal=200 %}">
-            {% else %}
-                <a href="{% url 'main:login' %}">
-            {% endif %}
+            <a href="{% url 'main:create_certificate' nominal=200 %}">
                 <img src="{% static 'img/sert-7.png' %}" alt="">
             </a>
         </div>
         <div class="documents-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'main:create_certificate' nominal=500 %}">
-            {% else %}
-                <a href="{% url 'main:login' %}">
-            {% endif %}
+            <a href="{% url 'main:create_certificate' nominal=500 %}">
                 <img src="{% static 'img/sert-8.png' %}" alt="">
             </a>
         </div>
