@@ -109,7 +109,7 @@ def certificate(request, number):
     if certificate.made_by == mycertuser:
         context = {'certificate': certificate}
         return render(request, template_name='certificate.html', context=context)
-    if certificate.status != '':
+    if certificate.status != 'NONE':
         context = {'certificate': certificate}
         return render(request, template_name='certificate.html', context=context)
     context = {'certificate': certificate, 'accept': True}
