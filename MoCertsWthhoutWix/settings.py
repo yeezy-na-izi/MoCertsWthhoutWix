@@ -25,9 +25,10 @@ SECRET_KEY = 'django-insecure-bp#u#v*b282b%g=y&h@jj8jl%cnl((-nh&0&0dqwi8u%vwd9)!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mocert.com']
+ALLOWED_HOSTS = ['mocerts.com']
 
-STATIC_ROOT = '/home/c/cashriser/mocert.com/public_html/static'
+STATIC_ROOT = '/home/c/cashriser/mocerts.com/public_html/static'
+
 
 # Application definition
 
@@ -79,9 +80,9 @@ WSGI_APPLICATION = 'MoCertsWthhoutWix.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cashriser_mocert',
-        'USER': 'cashriser_mocert',
-        'PASSWORD': '1wnRa*5t',
+        'NAME': 'cashriser_dj3',
+        'USER': 'cashriser_dj3',
+        'PASSWORD': 'X8aO*%T4u',
         'HOST': 'localhost',
         'PORT': '3306',
     }
