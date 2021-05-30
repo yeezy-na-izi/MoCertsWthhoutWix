@@ -17,7 +17,7 @@ def generate_certificate(nominal, number, user1, user2, user3):
     draw_text.text((80, 500), first_user, font=font)
     draw_text.text((120, 600), second_user, font=font)
     draw_text.text((160, 700), third_user, font=font)
-    font_number = ImageFont.truetype("arial.ttf", 45)
+    font_number = ImageFont.truetype(os.path.join(settings.MEDIA_DIR, 'arial.ttf'), 45)
     draw_text.text((800, 1150), number_text, font=font_number, fill='black', stroke_width=1)
     file_name_result = '{}.png'.format(number)
     file_name_result_path = os.path.join(settings.MEDIA_DIR, file_name_result)

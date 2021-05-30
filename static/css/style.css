@@ -23,6 +23,13 @@ body {
     background: url(../img/register_bg.jpg) center center/cover no-repeat;
 }
 
+.login-profile-icon {
+    position: static;
+    width: 30px;
+    height: 30px;
+}
+
+
 .cert_list {
     margin-top: 15px;
     display: flex;
@@ -499,6 +506,21 @@ ul,li {
     height: 150px;
     margin-bottom: 50px;
 }
+
+a.login {
+    color: rgb(226,112,90);
+    font-size: 28px;
+    text-decoration: none;
+}
+
+.login-profile-icon {
+    fill: rgb(226,112,90);
+}
+
+.footer-adress {
+    text-shadow:rgba(0, 0, 0, 0.298039) 0px 5px 0px
+}
+
 @media screen and (max-width:1200px) {
     .container{
         width: 100%;
