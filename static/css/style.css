@@ -353,7 +353,10 @@ body {
     align-items: center;
 }
 .logo-content img {
-    width: 50px;
+    width: 60px;
+    border: solid 4px;
+    border-radius: 50%;
+    border-color: white;
 }
 .list-item {
     display: flex;
