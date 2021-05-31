@@ -53,6 +53,33 @@ body {
     height: 26px;
     background: url(../img/telegram_icon.webp) center center/cover no-repeat;;
 }
+.whatsapp-share{
+    margin-left: 10px;
+    width: 26px;
+    height: 26px;
+    background: url(../img/whatsup_icon.webp) center center/cover no-repeat;;
+}
+
+.facebook-share{
+    margin-left: 10px;
+    width: 26px;
+    height: 26px;
+    background: url(../img/facebook_icon.webp) center center/cover no-repeat;;
+}
+
+.instagram-share{
+    margin-left: 10px;
+    width: 26px;
+    height: 26px;
+    background: url(../img/insta_icon.webp) center center/cover no-repeat;;
+}
+
+.mail-share{
+    margin-left: 10px;
+    width: 26px;
+    height: 26px;
+    background: url(../img/mail_icon.webp) center center/cover no-repeat;;
+}
 
 
 .register-block h1 {

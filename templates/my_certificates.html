@@ -21,9 +21,25 @@
                     {% for cert in  certificates_1 %}
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
-                            <span>{{ cert.get_status_display }}</span>
+                            {% if cert.get_status_display %}
+                                <span>{{ cert.get_status_display }}</span>
+                            {% else %}
+                                <span>Не получен</span>
+                            {% endif %}
                             <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
                                 <div class="telegram-share"></div>
+                            </a>
+                            <a href="https://www.whatsapp.com/?lang=ru" target="_blank">
+                                <div class="whatsapp-share"></div>
+                            </a>
+                            <a href="https://ru-ru.facebook.com/" target="_blank">
+                                <div class="facebook-share"></div>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <div class="instagram-share"></div>
+                            </a>
+                            <a href="https://mail.ru/" target="_blank">
+                                <div class="mail-share"></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -43,9 +59,25 @@
                     {% for cert in  certificates_5 %}
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
-                            <span>{{ cert.get_status_display }}</span>
+                            {% if cert.get_status_display %}
+                                <span>{{ cert.get_status_display }}</span>
+                            {% else %}
+                                <span>Не получен</span>
+                            {% endif %}
                             <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
                                 <div class="telegram-share"></div>
+                            </a>
+                            <a href="https://www.whatsapp.com/?lang=ru" target="_blank">
+                                <div class="whatsapp-share"></div>
+                            </a>
+                            <a href="https://ru-ru.facebook.com/" target="_blank">
+                                <div class="facebook-share"></div>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <div class="instagram-share"></div>
+                            </a>
+                            <a href="https://mail.ru/" target="_blank">
+                                <div class="mail-share"></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -65,9 +97,25 @@
                     {% for cert in  certificates_10 %}
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
-                            <span>{{ cert.get_status_display }}</span>
+                            {% if cert.get_status_display %}
+                                <span>{{ cert.get_status_display }}</span>
+                            {% else %}
+                                <span>Не получен</span>
+                            {% endif %}
                             <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
                                 <div class="telegram-share"></div>
+                            </a>
+                            <a href="https://www.whatsapp.com/?lang=ru" target="_blank">
+                                <div class="whatsapp-share"></div>
+                            </a>
+                            <a href="https://ru-ru.facebook.com/" target="_blank">
+                                <div class="facebook-share"></div>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <div class="instagram-share"></div>
+                            </a>
+                            <a href="https://mail.ru/" target="_blank">
+                                <div class="mail-share"></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -87,9 +135,25 @@
                     {% for cert in  certificates_20 %}
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
-                            <span>{{ cert.get_status_display }}</span>
+                            {% if cert.get_status_display %}
+                                <span>{{ cert.get_status_display }}</span>
+                            {% else %}
+                                <span>Не получен</span>
+                            {% endif %}
                             <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
                                 <div class="telegram-share"></div>
+                            </a>
+                            <a href="https://www.whatsapp.com/?lang=ru" target="_blank">
+                                <div class="whatsapp-share"></div>
+                            </a>
+                            <a href="https://ru-ru.facebook.com/" target="_blank">
+                                <div class="facebook-share"></div>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <div class="instagram-share"></div>
+                            </a>
+                            <a href="https://mail.ru/" target="_blank">
+                                <div class="mail-share"></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -109,9 +173,25 @@
                     {% for cert in  certificates_50 %}
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
-                            <span>{{ cert.get_status_display }}</span>
+                            {% if cert.get_status_display %}
+                                <span>{{ cert.get_status_display }}</span>
+                            {% else %}
+                                <span>Не получен</span>
+                            {% endif %}
                             <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
                                 <div class="telegram-share"></div>
+                            </a>
+                            <a href="https://www.whatsapp.com/?lang=ru" target="_blank">
+                                <div class="whatsapp-share"></div>
+                            </a>
+                            <a href="https://ru-ru.facebook.com/" target="_blank">
+                                <div class="facebook-share"></div>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <div class="instagram-share"></div>
+                            </a>
+                            <a href="https://mail.ru/" target="_blank">
+                                <div class="mail-share"></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -132,9 +212,25 @@
                     {% for cert in  certificates_100 %}
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
-                            <span>{{ cert.get_status_display }}</span>
+                            {% if cert.get_status_display %}
+                                <span>{{ cert.get_status_display }}</span>
+                            {% else %}
+                                <span>Не получен</span>
+                            {% endif %}
                             <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
                                 <div class="telegram-share"></div>
+                            </a>
+                            <a href="https://www.whatsapp.com/?lang=ru" target="_blank">
+                                <div class="whatsapp-share"></div>
+                            </a>
+                            <a href="https://ru-ru.facebook.com/" target="_blank">
+                                <div class="facebook-share"></div>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <div class="instagram-share"></div>
+                            </a>
+                            <a href="https://mail.ru/" target="_blank">
+                                <div class="mail-share"></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -155,9 +251,25 @@
                     {% for cert in  certificates_200 %}
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
-                            <span>{{ cert.get_status_display }}</span>
+                            {% if cert.get_status_display %}
+                                <span>{{ cert.get_status_display }}</span>
+                            {% else %}
+                                <span>Не получен</span>
+                            {% endif %}
                             <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
                                 <div class="telegram-share"></div>
+                            </a>
+                            <a href="https://www.whatsapp.com/?lang=ru" target="_blank">
+                                <div class="whatsapp-share"></div>
+                            </a>
+                            <a href="https://ru-ru.facebook.com/" target="_blank">
+                                <div class="facebook-share"></div>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <div class="instagram-share"></div>
+                            </a>
+                            <a href="https://mail.ru/" target="_blank">
+                                <div class="mail-share"></div>
                             </a>
                         </div>
                     {% endfor %}
@@ -177,9 +289,25 @@
                     {% for cert in  certificates_500 %}
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
-                            <span>{{ cert.get_status_display }}</span>
+                            {% if cert.get_status_display %}
+                                <span>{{ cert.get_status_display }}</span>
+                            {% else %}
+                                <span>Не получен</span>
+                            {% endif %}
                             <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
                                 <div class="telegram-share"></div>
+                            </a>
+                            <a href="https://www.whatsapp.com/?lang=ru" target="_blank">
+                                <div class="whatsapp-share"></div>
+                            </a>
+                            <a href="https://ru-ru.facebook.com/" target="_blank">
+                                <div class="facebook-share"></div>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <div class="instagram-share"></div>
+                            </a>
+                            <a href="https://mail.ru/" target="_blank">
+                                <div class="mail-share"></div>
                             </a>
                         </div>
                     {% endfor %}
