@@ -89,14 +89,14 @@
                     <div class="logo">
                         <img src="{% static 'img/logo.png' %}" alt="logo">
                     </div>
-                    <div class="logo-content">
-                        {% if user.is_authenticated %}
+                    {% if user.is_authenticated %}
+                        <div class="logo-content">
                             <div class="text">{{ user.first_name }} {{ user.last_name }}</div>
-                            <a href="{% url 'main:profile' pk=user.pk %}">
-                                <img class="profile-logo" src="{{ user.mycertsuser.profile_photo|thumbnail_url:'small' }}" alt="">
-                            </a>
-                        {% endif %}
-                    </div>
+                        </div>
+                        <a href="{% url 'main:profile' pk=user.pk %}">
+                            <img class="profile-logo" src="{{ user.mycertsuser.profile_photo|thumbnail_url:'small' }}" alt="">
+                        </a>
+                    {% endif %}
                     {% if not user.is_authenticated %}
                         <a class="registration" data-toggle="modal" data-target="#modal-register" href="#">Registration</a>
                         <img class="profile-logo" src="{% static 'img/profile.png' %}" alt="">
@@ -165,12 +165,11 @@
                     <img src="{% static 'img/50083-information-container-city-poster-.webp' %}" alt="">
                 </div>
                 <div class="footer-icon">
-                    <div class="icon"><a href="#"><img src="{% static 'img/twitter.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="#"><img src="{% static 'img/inst.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="#"><img src="{% static 'img/vk.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="#"><img src="{% static 'img/facebook.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="#"><img src="{% static 'img/youtube.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="#"><img src="{% static 'img/yum.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="https://t.me/mocerts"><img src="{% static 'img/1.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="https://t.me/cashriser"><img src="{% static 'img/2.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="https://t.me/mocertsbot"><img src="{% static 'img/3.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="https://instagram.com/mocerts"><img src="{% static 'img/4.png' %}" alt="social"></a></div>
+                    <div class="icon"><a href="https://facebook.com/mocerts"><img src="{% static 'img/5.png' %}" alt="social"></a></div>
                 </div>
                 <div class="footer-doc">Лицензия №1609<br>
                     от 05 марта 2021 года</div>
