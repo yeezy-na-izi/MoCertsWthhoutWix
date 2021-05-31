@@ -10,7 +10,7 @@ class MyCertsUser(models.Model):
     phone = models.CharField(max_length=50, verbose_name='phone', null=True, blank=True)
     balance = models.DecimalField(max_digits=6, decimal_places=1, verbose_name='balance', blank=False, default=0)
     certificate = models.ForeignKey('Certificate', on_delete=models.SET_NULL, null=True, blank=True)
-    profile_photo = models.ImageField(default='profile.jpg')
+    profile_photo = models.ImageField(default='profile.png')
 
     def __str__(self):
         return f'Пользователь {self.user.username}'
