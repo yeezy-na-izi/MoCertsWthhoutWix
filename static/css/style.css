@@ -18,9 +18,13 @@ body {
 .register-block {
     margin-left: auto;
     margin-right: auto;
-    width: 723px;
-    height: 1023px;
+    width: 700px;
+    height: 1000px;
     background: url(../img/register_bg.jpg) center center/cover no-repeat;
+}
+
+#modal-register .modal-dialog {
+    max-width: 700px;
 }
 
 .login-profile-icon {
@@ -357,6 +361,8 @@ body {
 }
 
 .profile-logo {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 4px solid white;
 }
@@ -514,6 +520,12 @@ ul,li {
 }
 
 a.login {
+    color: rgb(226,112,90);
+    font-size: 28px;
+    text-decoration: none;
+}
+
+a.registration {
     color: rgb(226,112,90);
     font-size: 28px;
     text-decoration: none;
