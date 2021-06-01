@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import os
 from django.conf import settings
+from django.urls import reverse
 
 
 class MyCertsUser(models.Model):
@@ -33,3 +34,6 @@ class Certificate(models.Model):
     made_by = models.ForeignKey(MyCertsUser, on_delete=models.SET_NULL, default=None, null=True, blank=True,
                                 related_name='made_by_user')
     status = models.CharField(max_length=15, choices=STATUS, default='NONE')
+
+    def get_absolute_url(self):
+        return "https://mocerts.com/{}".format(self.number)

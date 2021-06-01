@@ -22,12 +22,12 @@
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
                             {% if cert.get_status_display %}
-                                <span>{{ cert.get_status_display }}</span>
+                                <span>{{ cert.get_status_display|lower }}</span>
                             {% else %}
-                                <span>Не получен</span>
+                                <span>не получен</span>
                             {% endif %}
                             <div class="messagers">
-                                <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
+                                <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
                                     <div class="telegram-share"></div>
                                 </a>
                                 <a href="https://www.whatsapp.com/?lang=ru" target="_blank" data-url="{% url 'main:certificate' number=cert.number %}" onclick="CopyUrl(this)">
@@ -62,12 +62,12 @@
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
                             {% if cert.get_status_display %}
-                                <span>{{ cert.get_status_display }}</span>
+                                <span>{{ cert.get_status_display|lower }}</span>
                             {% else %}
-                                <span>Не получен</span>
+                                <span>не получен</span>
                             {% endif %}
                             <div class="messagers">
-                                <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
+                                <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
                                     <div class="telegram-share"></div>
                                 </a>
                                 <a href="https://www.whatsapp.com/?lang=ru" target="_blank" data-url="{% url 'main:certificate' number=cert.number %}" onclick="CopyUrl(this)">
@@ -102,12 +102,12 @@
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
                             {% if cert.get_status_display %}
-                                <span>{{ cert.get_status_display }}</span>
+                                <span>{{ cert.get_status_display|lower }}</span>
                             {% else %}
-                                <span>Не получен</span>
+                                <span>не получен</span>
                             {% endif %}
                             <div class="messagers">
-                                <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
+                                <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
                                     <div class="telegram-share"></div>
                                 </a>
                                 <a href="https://www.whatsapp.com/?lang=ru" target="_blank" data-url="{% url 'main:certificate' number=cert.number %}" onclick="CopyUrl(this)">
@@ -142,12 +142,12 @@
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
                             {% if cert.get_status_display %}
-                                <span>{{ cert.get_status_display }}</span>
+                                <span>{{ cert.get_status_display|lower }}</span>
                             {% else %}
-                                <span>Не получен</span>
+                                <span>не получен</span>
                             {% endif %}
                             <div class="messagers">
-                                <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank" >
+                                <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank" >
                                     <div class="telegram-share"></div>
                                 </a>
                                 <a href="https://www.whatsapp.com/?lang=ru" target="_blank" data-url="{% url 'main:certificate' number=cert.number %}" onclick="CopyUrl(this)">
@@ -182,12 +182,12 @@
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
                             {% if cert.get_status_display %}
-                                <span>{{ cert.get_status_display }}</span>
+                                <span>{{ cert.get_status_display|lower }}</span>
                             {% else %}
-                                <span>Не получен</span>
+                                <span>не получен</span>
                             {% endif %}
                             <div class="messagers">
-                                <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
+                                <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
                                     <div class="telegram-share"></div>
                                 </a>
                                 <a href="https://www.whatsapp.com/?lang=ru" target="_blank" data-url="{% url 'main:certificate' number=cert.number %}" onclick="CopyUrl(this)">
@@ -223,12 +223,12 @@
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
                             {% if cert.get_status_display %}
-                                <span>{{ cert.get_status_display }}</span>
+                                <span>{{ cert.get_status_display|lower }}</span>
                             {% else %}
-                                <span>Не получен</span>
+                                <span>не получен</span>
                             {% endif %}
                             <div class="messagers">
-                                <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
+                                <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
                                     <div class="telegram-share"></div>
                                 </a>
                                 <a href="https://www.whatsapp.com/?lang=ru" target="_blank" data-url="{% url 'main:certificate' number=cert.number %}" onclick="CopyUrl(this)">
@@ -264,12 +264,12 @@
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
                             {% if cert.get_status_display %}
-                                <span>{{ cert.get_status_display }}</span>
+                                <span>{{ cert.get_status_display|lower }}</span>
                             {% else %}
-                                <span>Не получен</span>
+                                <span>не получен</span>
                             {% endif %}
                             <div class="messagers">
-                                <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
+                                <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
                                     <div class="telegram-share"></div>
                                 </a>
                                 <a href="https://www.whatsapp.com/?lang=ru" target="_blank" data-url="{% url 'main:certificate' number=cert.number %}" onclick="CopyUrl(this)">
@@ -304,12 +304,12 @@
                         <div class="cert_row">
                             <a href="{% url "main:certificate" number=cert.number %}">№ {{ cert.number }}</a>
                             {% if cert.get_status_display %}
-                                <span>{{ cert.get_status_display }}</span>
+                                <span>{{ cert.get_status_display|lower }}</span>
                             {% else %}
-                                <span>Не получен</span>
+                                <span>не получен</span>
                             {% endif %}
                             <div class="messagers">
-                                <a href="https://t.me/share?url={% url 'main:certificate' number=cert.number %}" target="_blank">
+                                <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
                                     <div class="telegram-share"></div>
                                 </a>
                                 <a href="https://www.whatsapp.com/?lang=ru" target="_blank" data-url="{% url 'main:certificate' number=cert.number %}" onclick="CopyUrl(this)">
