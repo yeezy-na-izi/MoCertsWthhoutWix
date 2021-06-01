@@ -96,6 +96,11 @@ body {
     margin-left: 350px;
 }
 
+.messagers {
+    display: flex;
+    flex-direction: row;
+}
+
 ::placeholder {
     vertical-align: center;
     font-size: 24px;
