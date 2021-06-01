@@ -36,4 +36,4 @@ class Certificate(models.Model):
     status = models.CharField(max_length=15, choices=STATUS, default='NONE')
 
     def get_absolute_url(self):
-        return "https://mocerts.com/{}".format(self.number)
+        return "https://mocerts.com/certificate/{}".format(self.number)
