@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bp#u#v*b282b%g=y&h@jj8jl%cnl((-nh&0&0dqwi8u%vwd9)!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['mocerts.com', '127.0.0.1']
+ALLOWED_HOSTS = ['mocerts.com']
 
 STATIC_ROOT = '/home/c/cashriser/mocerts.com/public_html/static'
 
