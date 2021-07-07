@@ -1,6 +1,6 @@
 {% extends 'layout/base.html'%}
 {% block content %}
-<div class="profile-block">
+<main>
     <h1>{{ object.username }}</h1>
     <ul>
         <li>
@@ -17,5 +17,5 @@
         <a href="{% url 'changepassword' %}">Изменить пароль</a>
     </p>
     <a href="{% url 'logout' %}">Logout</a>
-</div>
+</main>
 {% endblock %}
