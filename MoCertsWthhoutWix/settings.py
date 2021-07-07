@@ -102,7 +102,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cashriser_dj2',
-        'USER': 'cashriser',
+        'USER': 'cashriser_dj2',
         'PASSWORD': 'esIG&5e7',
         'HOST': 'localhost',
         'PORT': '3306',
