@@ -101,9 +101,9 @@ WSGI_APPLICATION = 'MoCertsWthhoutWix.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cashriser_dj3',
-        'USER': 'cashriser_dj3',
-        'PASSWORD': 'X8aO*%T4u',
+        'NAME': 'cashriser_dj2',
+        'USER': 'cashriser',
+        'PASSWORD': 'esIG&5e7',
         'HOST': 'localhost',
         'PORT': '3306',
     }
