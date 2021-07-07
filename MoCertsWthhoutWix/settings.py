@@ -100,19 +100,12 @@ WSGI_APPLICATION = 'MoCertsWthhoutWix.wsgi.application'
 
 DATABASES = {
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'freelance',
-
-        'USER': 'postgres',
-
-        'PASSWORD': '',
-
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cashriser_dj3',
+        'USER': 'cashriser_dj3',
+        'PASSWORD': 'X8aO*%T4u',
         'HOST': 'localhost',
-
-        'PORT': '5432',
-
+        'PORT': '3306',
     }
 }
 
