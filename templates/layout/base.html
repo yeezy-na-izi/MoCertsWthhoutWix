@@ -223,7 +223,7 @@
                     </li>
                     <li id="EN">
                         <img src="{% static 'img/GBR.png' %}" alt="GBR">
-                        EN
+                        <a href="en/{{ request.get_full_path|stringformat:'i' }}">EN</a>
                     </li>
                     <li id="DE">
                         <img src="{% static 'img/DEU.png' %}" alt="DEU">
@@ -247,7 +247,7 @@
                         <button type="submit" value="pt">PT</button>
                     </li>
                 </ul>
-<!--                <button type="submit">Change</button>-->
+                <!--                <button type="submit">Change</button>-->
             </form>
         </div>
     </div>
@@ -336,6 +336,7 @@
             };
             reader.readAsDataURL(input_photo.files[0]);
         }
+
 
 
 
