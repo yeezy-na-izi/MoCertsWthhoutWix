@@ -213,42 +213,37 @@
                 <i class="fa fa-chevron-up"></i>
                 {% endif %}
             </div>
-            <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="next" value="{{ redirct_to }}">
-                <ul class="dropdown-menu">
-                    <li id="RU">
-                        <img src="{% static 'img/RUS.png' %}" alt="RUS">
-                        RU
-                    </li>
-                    <li id="EN">
-                        <img src="{% static 'img/GBR.png' %}" alt="GBR">
-                        <a href="en/{{ request.get_full_path|stringformat:'i' }}">EN</a>
-                    </li>
-                    <li id="DE">
-                        <img src="{% static 'img/DEU.png' %}" alt="DEU">
-                        DE
-                    </li>
-                    <li id="ES">
-                        <img src="{% static 'img/ESP.png' %}" alt="ESP">
-                        ES
-                    </li>
-                    <li id="FR">
-                        <img src="{% static 'img/FRA.png' %}" alt="FRA">
-                        FR
-                    </li>
-                    <li id="IT">
-                        <img src="{% static 'img/ITA.png' %}" alt="ITA">
-                        IT
-                    </li>
-                    <li id="PT">
-                        <img src="{% static 'img/PRT.png' %}" alt="PRT">
+            <ul class="dropdown-menu">
+                <li id="RU">
+                    <img src="{% static 'img/RUS.png' %}" alt="RUS">
+                    <a href="/ru/">EN</a>
+                </li>
+                <li id="EN">
+                    <img src="{% static 'img/GBR.png' %}" alt="GBR">
+                    <a href="/en/">EN</a>
+                </li>
+                <li id="DE">
+                    <img src="{% static 'img/DEU.png' %}" alt="DEU">
+                    <a href="/de/">EN</a>
+                </li>
+                <li id="ES">
+                    <img src="{% static 'img/ESP.png' %}" alt="ESP">
+                    <a href="/es/">EN</a>
+                </li>
+                <li id="FR">
+                    <img src="{% static 'img/FRA.png' %}" alt="FRA">
+                    <a href="/fr/">FR</a>
+                </li>
+                <li id="IT">
+                    <img src="{% static 'img/ITA.png' %}" alt="ITA">
+                    I<a href="/it/">IT</a>
+                </li>
+                <li id="PT">
+                    <img src="{% static 'img/PRT.png' %}" alt="PRT">
 
-                        <button type="submit" value="pt">PT</button>
-                    </li>
-                </ul>
-                <!--                <button type="submit">Change</button>-->
-            </form>
+                    <a href="/pt/">PT</a>
+                </li>
+            </ul>
         </div>
     </div>
 
@@ -336,6 +331,7 @@
             };
             reader.readAsDataURL(input_photo.files[0]);
         }
+
 
 
 
