@@ -1,198 +1,316 @@
 {% load static %}
 {% load thumbnail %}
-<!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
+    {% block head %}
+
+    {% endblock %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{% block title %}Mocerts{% endblock %}</title>
-    <link href="https://allfont.ru/allfont.css?fonts=mon-amour-two-medium" rel="stylesheet" type="text/css" />
+    <link href="https://allfont.ru/allfont.css?fonts=mon-amour-two-medium" rel="stylesheet" type="text/css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&amp;display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
     <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'img/site.webmanifest' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
-{% block body_class %}
+
 <body class="common">
-{% endblock %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="nav__mobile">
+    <i class="fa fa-times close__nav" aria-hidden="true"></i>
+    <ul class="nav__mobile--ul">
+        <li class="nav__ul--item">
+            <a href="{% url 'main_page' %}">Home</a>
+        </li>
+        <li class="nav__ul--item">
+            <a href="{% url 'select_certificate' %}">Create Certificate</a>
+        </li>
+        <li class="nav__ul--item">
+            <a href="{% url 'my_certificates' %}">My Certificates</a>
+        </li>
+        <li class="nav__ul--item">
+            <a href="{% url 'manual' %}">Instruction</a>
+        </li>
+        <li class="nav__ul--item registration">
+            <a href="#">Registration</a>
+        </li>
+    </ul>
 
-<!-- The Modal -->
-<div class="modal" id="modal-login">
-  <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="dropdown dropdown__menu--mobile">
+        <div class="select">
+            <img style="margin-left: 10px;" src="{% static 'img/GBR.png' %}" alt="GBR">
+            <span>
+                EN
+            </span>
+            <i class="fa fa-chevron-up open__dropdown"></i>
+        </div>
+        <input type="hidden" name="language">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Log in</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form action="{% url 'main:login' %}" method="post">
-            {% csrf_token %}
-            <p>
-                <label for="id_username">Username:</label>
-                <input type="text" class="form-control" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
-            </p>
-            <p>
-                <label for="id_password">Password:</label>
-                <input type="password" class="form-control" name="password" autocomplete="current-password" required="" id="id_password">
-            </p>
-            <input type="hidden" name="next" value="{{ next }}"/>
-            <p>
-                <input class="btn btn-success" type="submit" value="Log-in">
-            </p>
-        </form>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
+        <ul class="dropdown-menu">
+            <li id="RU">
+                <img src="{% static 'img/RUS.png' %}" alt="RUS">
+                RU
+            </li>
+            <li id="EN">
+                <img src="{% static 'img/GBR.png' %}" alt="GBR">
+                EN
+            </li>
+            <li id="DE">
+                <img src="{% static 'img/DEU.png' %}" alt="DEU">
+                DE
+            </li>
+            <li id="ES">
+                <img src="{% static 'img/ESP.png' %}" alt="ESP">
+                ES
+            </li>
+            <li id="FR">
+                <img src="{% static 'img/FRA.png' %}" alt="FRA">
+                FR
+            </li>
+            <li id="IT">
+                <img src="{% static 'img/ITA.png' %}" alt="ITA">
+                IT
+            </li>
+            <li id="PT">
+                <img src="{% static 'img/PRT.png' %}" alt="PRT">
+                PT
+            </li>
+        </ul>
     </div>
-  </div>
 </div>
-<!-- The Modal -->
-<div class="modal" id="modal-register">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-            <div class="register-block">
-                <h1>Registration</h1>
-                <div class="profile-photo">
-                    <img class="profile-photo_img" src="/media/profile.jpg" alt="">
-                </div>
-                <form action="{% url 'main:registration' %}" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="profile-data-register">
-                        <p><input type="file" name="profile_photo" accept="image/*" id="id_profile_photo"></p>
-                        <p><input type="text" name="first_name" maxlength="150" placeholder="Имя" id="id_first_name"> <input type="text" name="last_name" maxlength="150" placeholder="Фамилия" id="id_last_name"></p>
-                        <p><input type="text" name="username" maxlength="150" autofocus="" placeholder="Имя пользователя" required="" id="id_username"></p>
-                        <p><input type="email" name="email" maxlength="254" placeholder="Email" id="id_email"></p>
-                        <p><input type="password" name="password1" autocomplete="new-password" placeholder="Пароль" required="" id="id_password1"></p>
-                        <p><input type="password" name="password2" autocomplete="new-password" placeholder="Подтвердите пароль" required="" id="id_password2"></p>
-                        <p><input type="submit" value="Register"></p>
-                    </div>
-                </form>
-            </div>
-      </div>
-  </div>
-</div>
-    <header class="header">
-        <div class="header-wrap-bg">
-            <div class="container">
-                <div class="header-wrap">
-                    <div class="logo">
-                        <img src="{% static 'img/logo.png' %}" alt="logo">
-                    </div>
-                    {% if user.is_authenticated %}
-                        <div class="logo-content">
-                            <div class="text">{{ user.first_name }} {{ user.last_name }}</div>
-                        </div>
-                        <a href="{% url 'main:profile' pk=user.pk %}">
-                            <img class="profile-logo" src="{{ user.mycertsuser.profile_photo|thumbnail_url:'small' }}" alt="">
-                        </a>
-                    {% endif %}
-                    {% if not user.is_authenticated %}
-                        <a class="registration" data-toggle="modal" data-target="#modal-register" href="#">Registration</a>
-                        <img class="profile-logo" src="{% static 'img/profile.png' %}" alt="">
-                        <a class="login" data-toggle="modal" data-target="#modal-login" href="#">Log In</a>
-                    {% endif %}
-                    <div class="profile-header-block">
-                        {% if user.is_authenticated %}
-                            <a class="balance" href="{% url 'main:profile' pk=user.pk %}">{{ user.mycertsuser.balance }}$</a>
-                        {% endif %}
-                    </div>
-                    <div class="header-select">
-                        <div class="select">
-                            <div class="EN">
-                                <img src="{% static 'img/GBR.png' %}" alt="en">
-                                <span>EN</span>
-                                <span class="arrow"></span>
-                            </div>
-                            <div class="select-list">
-                                <div class="RU"><img src="{% static 'img/RUS.png' %}" alt="ru"><span>RU</span></div>
-                                <div class="DE"><img src="{% static 'img/DEU.png' %}" alt="de"><span>DE</span></div>
-                                <div class="FR"><img src="{% static 'img/FRA.png' %}" alt="fr"><span>FR</span></div>
-                                <div class="ES"><img src="{% static 'img/ESP.png' %}" alt="el"><span>ES</span></div>
-                                <div class="EL"><img src="{% static 'img/GRC.png' %}" alt="el"><span>EL</span></div>
-                                <div class="IT"><img src="{% static 'img/ITA.png' %}" alt="es"><span>IT</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header__hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
+<!--<header class="header">-->
+<!--    <div class="header-wrap-bg">-->
+<!--        <div class="container">-->
+<!--            <div class="header-wrap">-->
+<!--                <div class="logo">-->
+<!--                    <img src="{% static 'img/logo.png' %}" alt="logo">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+
+<header class="header" id="header">
+    <img class="header__img" style="position: absolute; left: 0; top: 0; z-index: -1; width: 100%; height: 133px;"
+         src="{% static 'img/header-long.webp' %}" alt="">
+    <img src="{% static 'img/koners.webp' %}" class="header__left--koners koners" alt="Koners">
+
+    <div class="header__container">
+        <div class="logo">
+            <img src="{% static 'img/logo.webp' %}" alt="Logotype">
         </div>
-    </header>
+        <div class="header__mobile--nav">
+            <span></span>
+        </div>
+        {% if user.is_authenticated %}
+        <a href="{% url 'profile' pk=user.pk %}">
+            <span class="header__reg">{{ user.first_name }} {{ user.last_name }}</span>
+        </a>
+        <div class="header__avatar">
+            <a href="{% url 'profile' pk=user.pk %}"><img src="{% static 'img/avatar.webp' %}" alt="Avatar"></a>
+        </div>
+        <a href="{% url 'profile' pk=user.pk %}">
+            <span class="header__sum">
+            {{ user.balance }}$
+            </span>
+        </a>
+        {% else %}
+        <a href="{% url 'registration' %}"><span class="header__reg">Registration</span></a>
+        <div class="header__avatar">
+            <img src="{% static 'img/avatar.webp' %}" alt="Avatar">
+        </div>
+        <a href="{% url 'login' %}"><span class="header__reg">Login</span></a>
+        {% endif %}
+        <!--        <form action="{% url 'set_language' %}" method="post">-->
+        <!--            {% csrf_token %}-->
+        <!--            <input type="hidden" name="next" value="{{ redirct_to }}">-->
+        <!--            <select name="language">-->
+        <!--                <option value="RU" {% if LANGUAGE_CODE == 'ru' %} selected {% endif %}>ru</option>-->
+        <!--                <option value="EN" {% if LANGUAGE_CODE == 'en' %} selected {% endif %}>en</option>-->
+        <!--                <option value="DE" {% if LANGUAGE_CODE == 'de' %} selected {% endif %}>de</option>-->
+        <!--                <option value="FR" {% if LANGUAGE_CODE == 'fr' %} selected {% endif %}>fr</option>-->
+        <!--                <option value="ES" {% if LANGUAGE_CODE == 'es' %} selected {% endif %}>es</option>-->
+        <!--                <option value="IT" {% if LANGUAGE_CODE == 'it' %} selected {% endif %}>it</option>-->
+        <!--                <option value="PT" {% if LANGUAGE_CODE == 'pt' %} selected {% endif %}>pt</option>-->
+        <!--            </select>-->
+        <!--            <input type="submit" value="go">-->
+        <!--        </form>-->
+        <div class="dropdown">
+            <div class="select">
+                {% if LANGUAGE_CODE == 'ru' %}
+                <img style="margin-left: 10px;" src="{% static 'img/RUS.png' %}" alt="RUS">
+                <span>
+                    RU
+                </span>
+                <i class="fa fa-chevron-up"></i>
+                {% endif %}
+                {% if LANGUAGE_CODE == 'en' %}
+                <img style="margin-left: 10px;" src="{% static 'img/GBR.png' %}" alt="GBR">
+                <span>
+                    EN
+                </span>
+                <i class="fa fa-chevron-up"></i>
+                {% endif %}
+                {% if LANGUAGE_CODE == 'de' %}
+                <img style="margin-left: 10px;" src="{% static 'img/DEU.png' %}" alt="DEU">
+                <span>
+                    DE
+                </span>
+                <i class="fa fa-chevron-up"></i>
+                {% endif %}
+                {% if LANGUAGE_CODE == 'fr' %}
+                <img style="margin-left: 10px;" src="{% static 'img/FRA.png' %}" alt="FRA">
+                <span>
+                    FR
+                </span>
+                <i class="fa fa-chevron-up"></i>
+                {% endif %}
+                {% if LANGUAGE_CODE == 'es' %}
+                <img style="margin-left: 10px;" src="{% static 'img/ESP.png' %}" alt="ESP">
+                <span>
+                    ES
+                </span>
+                <i class="fa fa-chevron-up"></i>
+                {% endif %}
+                {% if LANGUAGE_CODE == 'it' %}
+                <img style="margin-left: 10px;" src="{% static 'img/ITA.png' %}" alt="ITA">
+                <span>
+                    IT
+                </span>
+                <i class="fa fa-chevron-up"></i>
+                {% endif %}
+                {% if LANGUAGE_CODE == 'pt' %}
+                <img style="margin-left: 10px;" src="{% static 'img/PRT.png' %}" alt="PRT">
+                <span>
+                    PT
+                </span>
+                <i class="fa fa-chevron-up"></i>
+                {% endif %}
+            </div>
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ redirct_to }}">
+                <ul class="dropdown-menu">
+                    <li id="RU">
+                        <img src="{% static 'img/RUS.png' %}" alt="RUS">
+                        RU
+                    </li>
+                    <li id="EN">
+                        <img src="{% static 'img/GBR.png' %}" alt="GBR">
+                        EN
+                    </li>
+                    <li id="DE">
+                        <img src="{% static 'img/DEU.png' %}" alt="DEU">
+                        DE
+                    </li>
+                    <li id="ES">
+                        <img src="{% static 'img/ESP.png' %}" alt="ESP">
+                        ES
+                    </li>
+                    <li id="FR">
+                        <img src="{% static 'img/FRA.png' %}" alt="FRA">
+                        FR
+                    </li>
+                    <li id="IT">
+                        <img src="{% static 'img/ITA.png' %}" alt="ITA">
+                        IT
+                    </li>
+                    <li id="PT">
+                        <img src="{% static 'img/PRT.png' %}" alt="PRT">
 
-    <section class="menu">
-        <div class="container">
-            <div class="menu-wrap">
-                <ul class="list-item">
-                    {% block header_links %}
-                        <li class="menu-link"><a href="{% url 'main:main_page' %}">Home</a></li>
-                        <li class="menu-link"><a href="{% url 'main:select_certificate' %}">Create certificate</a></li>
-                        <li class="menu-link"><a href="{% url 'main:my_certificates' %}">My certificates</a></li>
-                        <li class="menu-link"><a href="{% url 'main:manual' %}">Instructions</a></li>
-                    {% endblock %}
+                        <button type="submit" value="pt">PT</button>
+                    </li>
                 </ul>
-            </div>
-            <div class="menu-content">
-                {% block content %}
-                {% endblock %}
-            </div>
+<!--                <button type="submit">Change</button>-->
+            </form>
         </div>
-    </section>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-wrap">
-                <div class="footer-adress">
-                    <span>АО MoCersts</span><br>
-                    г. Новосибирск, 630007
-                    Железнодорожный район,
-                    ​Советская, 5​1 офис 506
-                </div>
-                <div>
-                    <img src="{% static 'img/50083-information-container-city-poster-.webp' %}" alt="">
-                </div>
-                <div class="footer-icon">
-                    <div class="icon"><a href="https://t.me/mocerts"><img src="{% static 'img/1.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="https://t.me/cashriser"><img src="{% static 'img/2.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="https://t.me/mocertsbot"><img src="{% static 'img/3.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="https://instagram.com/mocerts"><img src="{% static 'img/4.png' %}" alt="social"></a></div>
-                    <div class="icon"><a href="https://facebook.com/mocerts"><img src="{% static 'img/5.png' %}" alt="social"></a></div>
-                </div>
-                <div class="footer-doc">Лицензия №1609<br>
-                    от 05 марта 2021 года</div>
+    </div>
+
+    <img src="{% static 'img/koners_right.webp' %}" class="header__right--koners koners" alt="Koners">
+</header>
+
+
+<section class="nav" id="nav">
+    <nav class="main__nav">
+        <ul class="main__nav--ul">
+            <li class="main__nav--item">
+                <a href="{% url 'main_page' %}">Home</a>
+            </li>
+            <li class="main__nav--item">
+                <a href="{% url 'select_certificate' %}">Create Certificate</a>
+            </li>
+            <li class="main__nav--item">
+                <a href="{% url 'my_certificates' %}">My Certificates</a>
+            </li>
+            <li class="main__nav--item">
+                <a href="{% url 'manual' %}">Instruction</a>
+            </li>
+        </ul>
+    </nav>
+</section>
+{% block content %}
+{% endblock %}
+<footer class="footer" id="footer">
+    <div class="footer__container">
+        <section class="footer__contact">
+            <p style="line-height: 0.7;">АО MoCersts ®</p>
+            <p style="line-height: 0.7;">г. Новосибирск, 630007</p>
+            <p style="line-height: 0.7;">Железнодорожный район,</p>
+            <p style="margin-bottom: 9px; line-height: 0.7;"><u>​Советская, 5​1</u> офис 506</p>
+        </section>
+        <section class="footer__number">
+            <img src="{% static 'img/number_poster.png' %}" alt="Poster" class="footer__number--img">
+            <span>+780085050505</span>
+        </section>
+        <section class="footer__social">
+            <div class="footer__social--icons">
+                <a href="https://t.me/mocerts"><img src="{% static 'img/crown.webp' %}" alt="Crown"></a>
+                <a href="https://t.me/cashriser"><img src="{% static 'img/mc.webp' %}" alt="mc"></a>
+                <a href="https://t.me/mocertsbot"><img src="{% static 'img/bot.webp' %}" alt="Bot"></a>
+                <a href="https://instagram.com/mocerts"><img src="{% static 'img/insta.webp' %}" alt="Instagram"></a>
+                <a href="https://facebook.com/mocerts"><img src="{% static 'img/fb.webp' %}" alt="Facebook"></a>
             </div>
-            <div class="footer-copyright">© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com
-                Лицензия №1609
-            </div>
-        </div>
-    </footer>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    {% block script %}
-    {% endblock %}
+            <p>© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com</p>
+        </section>
+        <section class="footer__contact">
+            <p style="line-height: 0.7;">Certificate of Financial state</p>
+            <p style="line-height: 0.7;">№1604-21</p>
+            <p style="line-height: 0.7;">from 15.05.2021 y.</p>
+            <p class="edit__text" style="line-height: 0.7;">admin@mocerts.com &nbsp;</p>
+        </section>
+    </div>
+    <p class="footer__happy">© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com</p>
+</footer>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% block script %}
+{% endblock %}
 </body>
 <script>
         window.addEventListener('load', init, false);
@@ -219,5 +337,8 @@
             reader.readAsDataURL(input_photo.files[0]);
         }
 
-    </script>
+
+
+
+</script>
 </html>

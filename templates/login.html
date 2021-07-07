@@ -1,25 +1,33 @@
 {% extends 'layout/base.html' %}
 {% block content %}
-    <div class="login-input">
-        <h1>Log-in</h1>
-            {% if form.errors %}
-                <p>
-                    Your username and password didn't match.
-                    Please try again.
-                </p>
-            {% else %}
-                <p>Please, use the following form to log-in:</p>
-            {% endif %}
-            <div class="login-form">
-                <form action="{% url 'main:login' %}" method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                <input type="hidden" name="next" value="{{ next }}"/>
-                <p><input type="submit" value="Log-in"></p>
-                </form>
-            </div>
-                <p>
-                     <a href="{% url 'main:registration' %}">Registration</a>
-                </p>
-        </div>
+{% load socialaccount %}
+
+<div class="login-input">
+    <h1>Log-in</h1>
+    <a href="{% provider_login_url 'facebook' method='oauth2' %}">Login from Facebook</a>
+    <p>
+    <a href="/accounts/google/login/?process=login">Login from Google</a>
+    {% if form.errors %}
+    <p>
+        Your username and password didn't match.
+        Please try again.
+    </p>
+    {% else %}
+    <p>Please, use the following form to log-in:</p>
+    {% endif %}
+    <div class="login-form">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}"/>
+            <p><input type="submit" value="Log-in"></p>
+        </form>
+    </div>
+    <p>
+        <a href="{% url 'reset_password' %}">Reset password</a>
+    </p>
+    <p>
+        <a href="{% url 'registration' %}">Registration</a>
+    </p>
+</div>
 {% endblock %}

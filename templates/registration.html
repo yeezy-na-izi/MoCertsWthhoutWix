@@ -1,26 +1,26 @@
 {% extends 'layout/base.html' %}
 {% block content %}
-    <div class="register-block">
-        <h1>Registration</h1>
-        <div class="profile-photo">
-            <img class="profile-photo_img" src="/media/profile.jpg" alt="">
-        </div>
-        <form action="{% url 'main:registration' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="profile-data-register">
-                <p>{{ mycertuser_form.profile_photo }}</p>
-                <p>{{ user_form.first_name }} {{ user_form.last_name }}</p>
-                <p>{{ user_form.username }}</p>
-                <p>{{ user_form.email }}</p>
-                <p>{{ user_form.password1 }}</p>
-                <p>{{ user_form.password2 }}</p>
-                <p><input type="submit" value="Register"></p>
-            </div>
-        </form>
+<div class="register-block">
+    <h1>Registration</h1>
+    <div class="profile-photo">
+        <img class="profile-photo_img" src="/media/profile.jpg" alt="">
     </div>
+    <form action="{% url 'registration' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="profile-data-register">
+            <p>{{ user_form.photo }}</p>
+            <p>{{ user_form.first_name }} {{ user_form.last_name }}</p>
+            <p>{{ user_form.username }}</p>
+            <p>{{ user_form.email }}</p>
+            <p>{{ user_form.password1 }}</p>
+            <p>{{ user_form.password2 }}</p>
+            <p><input type="submit" value="Register"></p>
+        </div>
+    </form>
+</div>
 {% endblock %}
 {% block script %}
-    <script>
+<script>
         window.addEventListener('load', init, false);
         function init(e) {
             let profile_photo = document.getElementsByClassName('profile-photo');
@@ -44,6 +44,5 @@
             };
             reader.readAsDataURL(input_photo.files[0]);
         }
-
-    </script>
+</script>
 {% endblock %}

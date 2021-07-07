@@ -1,19 +1,22 @@
 {% extends 'layout/base.html' %}
 {% block body_class %}
-    <body>
+<body>
 {% endblock %}
 {% block header_links %}
-    <li class="menu-link"><a class="active-link" href="{% url 'main:main_page' %}">Home</a></li>
-    <li class="menu-link"><a href="{% url 'main:select_certificate' %}">Create certificate</a></li>
-    <li class="menu-link"><a href="{% url 'main:my_certificates' %}">My certificates</a></li>
-    <li class="menu-link"><a href="{% url 'main:manual' %}">Instructions</a></li>
+<li class="menu-link"><a class="active-link" href="{% url 'main_page' %}">Home</a></li>
+<li class="menu-link"><a href="{% url 'select_certificate' %}">Create certificate</a></li>
+<li class="menu-link"><a href="{% url 'my_certificates' %}">My certificates</a></li>
+<li class="menu-link"><a href="{% url 'manual' %}">Instructions</a></li>
 {% endblock %}
 {% block content %}
-    <div class="video-content">
-        <iframe src="https://www.youtube.com/watch?v=w9RUx2k0a1U" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="500" height="300" frameborder="0"></iframe>
-    </div>
-    <div class="video-btn">
-         <div class="btn-manual"><a href="{% url 'main:manual' %}">read manual</a></div>
-         <div class="btn-instruction"><a href="{% url 'main:manual' %}">instructions</a></div>
-    </div>
+<div class="video-content">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/w9RUx2k0a1U" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+</div>
+<div class="video-btn">
+    <div class="btn-manual"><a href="{% url 'manual' %}">read manual</a></div>
+    <div class="btn-instruction"><a href="{% url 'manual' %}">instructions</a></div>
+</div>
 {% endblock %}

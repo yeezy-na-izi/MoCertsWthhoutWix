@@ -1,27 +1,35 @@
 {% extends 'layout/base.html' %}
 {% load static %}
+{% block head %}
+<meta property="og:title" content="Сертификат">
+<meta property="og:site_name" content="">
+<meta property="og:url" content="{{ request.get_full_path }}">
+<meta property="og:image" content="{{ certificate.certificate_image.url }}">
+{% endblock %}
 {% block content %}
-    <h1 class="h1-certificate">Congratulation! You are create new Certificate</h1>
+<h1 class="h1-certificate">Congratulation! You are create new Certificate</h1>
+<div class="container">
     <div class="big_certificate">
         <img src="{{ certificate.certificate_image.url }}" alt="">
     </div>
     <div class="transfer_btn">
         {% if transfer %}
-            <a href="{% url 'main:pay_certificate' pk=certificate.pk %}">
-                <img src="{% static 'img/transfer.webp' %}" alt="">
-            </a>
+        <a href="{% url 'pay_certificate' pk=certificate.pk %}">
+            <img src="{% static 'img/transfer.webp' %}" alt="">
+        </a>
         {% elif accept %}
-             <a href="{% url 'main:accept' pk=certificate.pk %}">
-                 <img src="{% static 'img/accept.png' %}" alt="accept.png">
-             </a>
+        <a href="{% url 'accept' pk=certificate.pk %}">
+            <img src="{% static 'img/accept.png' %}" alt="accept.png">
+        </a>
         {% else %}
-            {% if certificate.status == 'RECEIVED' %}
-                <span>Сертификат получен</span>
-            {% elif certificate.status == 'PAID' %}
-                <span>Сертификат оплачен</span>
-            {% else %}
-                <span>Скопируйте ссылку для отправки</span>
-            {% endif %}
+        {% if certificate.status == 'RECEIVED' %}
+        <span>Сертификат получен</span>
+        {% elif certificate.status == 'PAID' %}
+        <span>Сертификат оплачен</span>
+        {% else %}
+        <span>Скопируйте ссылку для отправки</span>
+        {% endif %}
         {% endif %}
     </div>
+</div>
 {% endblock %}

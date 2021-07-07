@@ -25,10 +25,9 @@ SECRET_KEY = 'django-insecure-bp#u#v*b282b%g=y&h@jj8jl%cnl((-nh&0&0dqwi8u%vwd9)!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mocerts.com']
+ALLOWED_HOSTS = ['mocerts.com', '127.0.0.1']
 
 STATIC_ROOT = '/home/c/cashriser/mocerts.com/public_html/static'
-
 
 # Application definition
 
@@ -39,14 +38,32 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    # My apps
     'main',
-    'easy_thumbnails'
+    # My plugins
+    'easy_thumbnails',
+    'modeltranslation',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 ]
+AUTH_USER_MODEL = 'main.Account'
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -72,6 +89,10 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
 WSGI_APPLICATION = 'MoCertsWthhoutWix.wsgi.application'
 
 # Database
@@ -79,12 +100,19 @@ WSGI_APPLICATION = 'MoCertsWthhoutWix.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cashriser_dj3',
-        'USER': 'cashriser_dj3',
-        'PASSWORD': 'X8aO*%T4u',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'freelance',
+
+        'USER': 'postgres',
+
+        'PASSWORD': '',
+
         'HOST': 'localhost',
-        'PORT': '3306',
+
+        'PORT': '5432',
+
     }
 }
 
@@ -109,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -125,18 +153,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-LOGIN_URL = 'main:login'
-LOGIN_REDIRECT_URL = 'main:main_page'
-LOGOUT_REDIRECT_URL = 'main:main_page'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'main_page'
+LOGOUT_REDIRECT_URL = 'main_page'
 
-# Default primary key field type
+# Default primary key fie
+# ld type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -151,4 +180,54 @@ THUMBNAIL_ALIASES = {
         }
 }
 
+SOCIALACCOUNT_PROVIDERS = {
+    'telegram': {
+        'TOKEN': '1894571716:AAHzKrYdiGdWUX_XqSZhMB-KwqncCwqmUqA'
+    },
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v7.0',
+    }
+}
+
+SITE_ID = 1
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('ru', gettext('Russia')),
+    ('en', gettext('English')),
+    ('de', gettext('Germany')),
+    ('fr', gettext('France')),
+    ('es', gettext('Spain')),
+    ('it', gettext('Italy')),
+    ('pt', gettext('Portugal'))
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
 HOST = 'http://127.0.0.1:8000'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'cinema.creating@gmail.com'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = 'qDePPCze8Jd!oxQb'

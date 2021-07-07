@@ -1,7 +1,10 @@
-asgiref==3.3.4
-Django==3.2.3
+asgiref
+Django
 easy-thumbnails==2.7.1
-Pillow==8.2.0
+Pillow
 pytz==2021.1
 sqlparse==0.4.1
 typing-extensions==3.10.0.0
+six
+django-allauth
+django-modeltranslation

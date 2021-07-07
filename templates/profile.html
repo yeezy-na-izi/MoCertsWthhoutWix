@@ -1,18 +1,21 @@
 {% extends 'layout/base.html'%}
 {% block content %}
-    <div class="profile-block">
-        <h1>{{ object.username }}</h1>
-        <ul>
-            <li>
-                <span>{{ object.first_name }} {{ object.last_name }}</span>
-            </li>
-            <li>
-                <span>email: {{ object.email }}</span>
-            </li>
-            <li>
-                <span>balance: {{ object.mycertsuser.balance }} $</span>
-            </li>
-        </ul>
-        <a href="{% url 'main:logout' %}">Logout</a>
-    </div>
+<div class="profile-block">
+    <h1>{{ object.username }}</h1>
+    <ul>
+        <li>
+            <span>{{ object.first_name }} {{ object.last_name }}</span>
+        </li>
+        <li>
+            <span>email: {{ object.email }}</span>
+        </li>
+        <li>
+            <span>balance: {{ object.balance }} $</span>
+        </li>
+    </ul>
+    <p>
+        <a href="{% url 'changepassword' %}">Изменить пароль</a>
+    </p>
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
 {% endblock %}
