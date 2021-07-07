@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bp#u#v*b282b%g=y&h@jj8jl%cnl((-nh&0&0dqwi8u%vwd9)!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['mocerts.com']
+ALLOWED_HOSTS = ['mocerts.com', '127.0.0.1']
 
 STATIC_ROOT = '/home/c/cashriser/mocerts.com/public_html/static'
 
@@ -100,12 +100,19 @@ WSGI_APPLICATION = 'MoCertsWthhoutWix.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cashriser_dj2',
-        'USER': 'cashriser_dj2',
-        'PASSWORD': 'esIG&5e7',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'freelance',
+
+        'USER': 'postgres',
+
+        'PASSWORD': '',
+
         'HOST': 'localhost',
-        'PORT': '3306',
+
+        'PORT': '5432',
+
     }
 }
 
