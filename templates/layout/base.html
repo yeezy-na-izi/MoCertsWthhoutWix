@@ -136,18 +136,20 @@
                                 <a href="/accounts/google/login/?process=login">Login from Google</a>
                             </p>
                             <p>
-                                <input type="email" name="email" maxlength="120" autofocus="" required="" id="id_login"
+                                <input type="text" name="username" autofocus="" autocapitalize="none"
+                                       autocomplete="username" maxlength="120" required="" id="id_login"
                                        placeholder="email">
                             </p>
                             <p>
-                                <input type="password" name="password" autocomplete="new-password" required=""
-                                       placeholder="password" id="id_password">
+                                <input type="password" name="password" autocomplete="current-password" required=""
+                                       id="id_password" placeholder="password">
                             </p>
                         </div>
                         <div style="position: absolute; top: 80%; left:10%; width:100%">
                             <div class="main__nav--item" style="width: 30%;">
                                 <a class="btn" href="" data-bs-toggle="modal" data-bs-dismiss="modal"
-                                   style="position: relative;top: -10px; color: #dba95e;" data-bs-target="#registration">
+                                   style="position: relative;top: -10px; color: #dba95e;"
+                                   data-bs-target="#registration">
                                     Registration
                                 </a>
                             </div>
@@ -395,6 +397,27 @@
         </ul>
     </nav>
 </section>
+<div class="container">
+    <div class="row">
+        {% for i in messages %}
+        {% if i.tags == 'error' %}
+        <div class="col">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        {% else %}
+        <div class="col">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
 {% block content %}
 {% endblock %}
 <footer class="footer" id="footer">
@@ -462,6 +485,9 @@
             };
             reader.readAsDataURL(input_photo.files[0]);
         }
+
+
+
 
 
 

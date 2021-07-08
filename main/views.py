@@ -8,6 +8,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import PasswordChangeView as ChangePasswordView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.sites.shortcuts import get_current_site
+from django.contrib import messages
 
 from django.core.mail import EmailMessage
 
@@ -38,7 +39,7 @@ def register(request):
         return redirect('/')
     if request.method == 'POST':
         user_form = UserForm(data=request.POST, files=request.FILES)
-        if user_form.is_valid():
+        if user_form.is_valid() and not Account.objects.get(email=request.POST['email']):
             user_form.is_active = False
             user = user_form.save()
             user.is_active = False
@@ -55,11 +56,11 @@ def register(request):
             email.send(fail_silently=False)
 
             return redirect('/login')
+        elif Account.objects.get(email=request.POST['email']):
+            messages.error(request, 'Вы уже были зарегистрированы')
     else:
         user_form = UserForm()
-    return render(request, 'registration.html', {
-        'user_form': user_form,
-    })
+    return render(request, 'index.html', {})
 
 
 class MyCertsLoginView(LoginView):
@@ -174,6 +175,7 @@ def pay_certificate(request, pk):
             certificate.save()
             request.user.certificate = None
             for i in range(0, 5):
+                certificate.user1.balance += certificate.nominal
                 user1, user2, user3 = certificate.user2, certificate.user3, request.user
                 number = datetime.today().strftime("%d%m%y%H%M%f")
                 image_certificate = generate_certificate(certificate.nominal, number, user1, user2, user3)
