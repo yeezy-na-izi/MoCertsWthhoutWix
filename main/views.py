@@ -44,12 +44,12 @@ def register(request):
             user.is_active = False
             user.save()
 
-            user_id = urlsafe_base64_encode(force_bytes(user.username))
+            user_id = urlsafe_base64_encode(force_bytes(user.email))
             domain = get_current_site(request).domain
             activate_url = f'http://{domain}/activate/{user_id}/{token_generator.make_token(user)}'
 
             email_subject = 'Подтверждение почты'
-            email_body = f'Привет, {user.username}, это активация аккаунта, перейди по ссылке чтобы ' \
+            email_body = f'Привет, {user}, это активация аккаунта, перейди по ссылке чтобы ' \
                          f'верефицировать свой аккаунт\n{activate_url}'
             email = EmailMessage(email_subject, email_body, 'noreply@semycolon.com', [user.email], )
             email.send(fail_silently=False)
@@ -84,11 +84,9 @@ class SelectCertificateView(TemplateView):
 
 
 def verification_email(request, user_id, token):
-    if request.user.is_authenticated:
-        return redirect(f'/profile/{request.user.username}')
     try:
-        username = force_text(urlsafe_base64_decode(user_id))
-        user = Account.objects.get(username=username)
+        email = force_text(urlsafe_base64_decode(user_id))
+        user = Account.objects.get(email=email)
         if token_generator.check_token(user, token) and not user.is_active:
             user.is_active = True
             user.save()
@@ -110,18 +108,15 @@ def create_certificate(request, nominal):
         user1_fullname = false_user()
         user2_fullname = false_user()
         user3_fullname = false_user()
-        user1 = Account(username='FAKEUSER1_{}'.format(number),
-                        first_name=user1_fullname[0],
+        user1 = Account(first_name=user1_fullname[0],
                         last_name=user1_fullname[1],
                         email=f'fakeuser1{number}.gmail.com',
                         password=user2_fullname)
-        user2 = Account(username='FAKEUSER2_{}'.format(number),
-                        first_name=user2_fullname[0],
+        user2 = Account(first_name=user2_fullname[0],
                         last_name=user2_fullname[1],
                         email=f'fakeuser2{number}.gmail.com',
                         password=user3_fullname)
-        user3 = Account(username='FAKEUSER3_{}'.format(number),
-                        first_name=user3_fullname[0],
+        user3 = Account(first_name=user3_fullname[0],
                         last_name=user3_fullname[1],
                         email=f'fakeuser3{number}.gmail.com',
                         password=user1_fullname)

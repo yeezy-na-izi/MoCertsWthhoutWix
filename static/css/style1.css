@@ -108,7 +108,8 @@ body {
 
 .profile-data-register #id_first_name, .profile-data-register #id_last_name,
 .profile-data-register #id_username, .profile-data-register #id_email,
-.profile-data-register #id_password1, .profile-data-register #id_password2  {
+.profile-data-register #id_password1, .profile-data-register #id_password2,
+.profile-data-register #id_login, .profile-data-register #id_password  {
     background: transparent;
     border: none;
     border-bottom: 3px solid #de9459;
@@ -118,7 +119,9 @@ body {
 .profile-data-register #id_username,
 .profile-data-register #id_email,
 .profile-data-register #id_password1,
-.profile-data-register #id_password2 {
+.profile-data-register #id_password2,
+.profile-data-register #id_login,
+.profile-data-register #id_password  {
     width: 300px;
 }
 

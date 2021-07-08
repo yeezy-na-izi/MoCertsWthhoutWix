@@ -175,6 +175,15 @@ li {
     justify-content: space-around;
 }
 
+.reg-button{
+    background: url("../img/links_bg.webp") no-repeat;
+    background-size: cover;
+    justify-content: center;
+    padding-top: 10px;
+    width: 169px;
+    height: 49px;
+}
+
 .main__nav--item {
     background: url("../img/links_bg.webp") no-repeat;
     background-size: cover;

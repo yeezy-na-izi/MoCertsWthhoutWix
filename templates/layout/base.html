@@ -3,7 +3,6 @@
 <html lang="en">
 <head prefix="og: https://ogp.me/ns#">
     {% block head %}
-
     {% endblock %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +24,8 @@
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
@@ -41,6 +42,130 @@
 <body class="common">
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
+{% load socialaccount %}
+
+
+<!-- Registration -->
+<div class="modal fade" id="registration" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="{% url 'registration' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <img class="profile-photo_img" src="/static/img/register_bg.jpg" alt="" width="100%">
+                    <div align="center" style="position: absolute; top: 15%; left: 35%;">
+                        <h3>Registration</h3>
+                    </div>
+                    <div class="profile-data-register">
+                        <div class="d-flex flex-wrap mt-2" style="position: absolute; top: 20%; left: 10%;">
+                            <div class="profile-photo" style="position: relative; top: 20%; left: 10%;">
+                                <label for="image">
+                                    <input type="file" class="form-control" name="photo"
+                                           accept="image/*" id="image" style="display:none;"/>
+                                    <img class="profile-photo_img" src="/media/profile.jpg" alt="" width="60%">
+                                </label>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: 45%; left: 30%;">
+                            <p>
+                                <input type="text" name="first_name" maxlength="30" required="" id="id_first_name"
+                                       placeholder="Имя" style="width:100%;">
+                            </p>
+                            <p>
+                                <input type="text" name="last_name" maxlength="30" required="" id="id_last_name"
+                                       placeholder="Фамилия" style="width:100%;">
+                            </p>
+                            <p>
+                                <input type="email" name="email" maxlength="120" autofocus="" required="" id="id_email"
+                                       placeholder="email">
+                            </p>
+                            <p>
+                                <input type="password" name="password1" autocomplete="new-password" required=""
+                                       id="id_password1" placeholder="password">
+                            </p>
+                            <p>
+                                <input type="password" name="password2" autocomplete="new-password" required=""
+                                       id="id_password2" placeholder="repet password">
+                            </p>
+                        </div>
+                        <div style="position: absolute; top: 80%; left:10%; width:100%">
+                            <div class="main__nav--item" style="width: 30%;">
+                                <button type="submit" class="btn"
+                                        style="position: relative;top: -10px; color: #dba95e;">
+                                    Register
+                                </button>
+
+                            </div>
+                            <div class="main__nav--item"
+                                 style="position: absolute; left:50%; top: 0%;width: 30%; max-height:100%">
+                                <a class="btn" href="" data-bs-toggle="modal" data-bs-dismiss="modal"
+                                   style="position: relative;top: -10px; color: #dba95e;" data-bs-target="#login">
+                                    Login
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Login -->
+<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="{% url 'registration' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <img class="profile-photo_img" src="/static/img/register_bg.jpg" alt="" width="100%">
+                    <div align="center" style="position: absolute; top: 15%; left: 44%;">
+                        <h3>Login</h3>
+                    </div>
+                    <div class="profile-data-register">
+                        <div class="d-flex flex-wrap mt-2" style="position: absolute; top: 20%; left: 10%;">
+                            <div class="profile-photo" style="position: relative; top: 20%; left: 10%;">
+                                <img class="profile-photo_img" src="/media/profile.jpg" alt="" width="60%">
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: 45%; left: 30%;">
+                            <p>
+                                <a href="{% provider_login_url 'facebook' method='oauth2' %}">Login from Facebook</a>
+                            </p>
+                            <p>
+                                <a href="/accounts/google/login/?process=login">Login from Google</a>
+                            </p>
+                            <p>
+                                <input type="email" name="email" maxlength="120" autofocus="" required="" id="id_login"
+                                       placeholder="email">
+                            </p>
+                            <p>
+                                <input type="password" name="password" autocomplete="new-password" required=""
+                                       placeholder="password" id="id_password">
+                            </p>
+                        </div>
+                        <div style="position: absolute; top: 80%; left:10%; width:100%">
+                            <div class="main__nav--item" style="width: 30%;">
+                                <a class="btn" href="" data-bs-toggle="modal" data-bs-dismiss="modal"
+                                   style="position: relative;top: -10px; color: #dba95e;" data-bs-target="#registration">
+                                    Registration
+                                </a>
+                            </div>
+                            <div class="main__nav--item"
+                                 style="position: absolute; left:50%; top: 0%;width: 30%; max-height:100%">
+                                <button type="submit" class="btn"
+                                        style="position: relative;top: -10px; color: #dba95e;">
+                                    Login
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="nav__mobile">
     <i class="fa fa-times close__nav" aria-hidden="true"></i>
     <ul class="nav__mobile--ul">
@@ -141,11 +266,12 @@
             </span>
         </a>
         {% else %}
-        <a href="{% url 'registration' %}"><span class="header__reg">Registration</span></a>
+        <a data-bs-toggle="modal" data-bs-target="#registration"><span class="header__reg">Registration</span></a>
+        <!--        <a href="{% url 'registration' %}"><span class="header__reg">Registration</span></a>-->
         <div class="header__avatar">
             <img src="{% static 'img/avatar.webp' %}" alt="Avatar">
         </div>
-        <a href="{% url 'login' %}"><span class="header__reg">Login</span></a>
+        <a data-bs-toggle="modal" data-bs-target="#login"><span class="header__reg">Login</span></a>
         {% endif %}
         <!--        <form action="{% url 'set_language' %}" method="post">-->
         <!--            {% csrf_token %}-->
@@ -306,6 +432,9 @@
 <script src="{% static 'js/script.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
 <script src="{% static 'js/main.js' %}" defer></script>
+<script src="/static/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
 {% block script %}
 {% endblock %}
 </body>
@@ -333,5 +462,46 @@
             };
             reader.readAsDataURL(input_photo.files[0]);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 </html>

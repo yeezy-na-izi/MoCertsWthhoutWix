@@ -3,15 +3,13 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, email, username, first_name, last_name, photo='', password=None):
+    def create_user(self, email, first_name, last_name, photo='', password=None):
         if not email:
             raise ValueError('Users must have an email address')
-        if not username:
-            raise ValueError('Users must have an username')
 
         user = self.model(
             email=self.normalize_email(email),
-            username=username,
+
             password=password,
             first_name=first_name,
             last_name=last_name,
@@ -22,10 +20,10 @@ class MyAccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, first_name, last_name, password):
+    def create_superuser(self, email, first_name, last_name, password):
         user = self.create_user(
             email=self.normalize_email(email),
-            username=username,
+
             password=password,
             first_name=first_name,
             last_name=last_name
@@ -43,7 +41,7 @@ class Account(AbstractBaseUser):
         verbose_name_plural = 'Люди'
 
     email = models.EmailField(verbose_name='email', max_length=120)
-    username = models.CharField(verbose_name='username', max_length=60)
+
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
     is_admin = models.BooleanField(default=False)
@@ -62,7 +60,7 @@ class Account(AbstractBaseUser):
     telegram_id = models.BigIntegerField(verbose_name='telegram id', blank=True, default=0)
     balance = models.IntegerField(verbose_name='balance', default=0)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name', ]
+    REQUIRED_FIELDS = ['first_name', 'last_name', ]
 
     objects = MyAccountManager()
 
