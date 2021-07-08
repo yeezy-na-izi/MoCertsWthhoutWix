@@ -39,7 +39,7 @@ def register(request):
         return redirect('/')
     if request.method == 'POST':
         user_form = UserForm(data=request.POST, files=request.FILES)
-        if user_form.is_valid() and not Account.objects.get(email=request.POST['email']):
+        if user_form.is_valid() and not Account.objects.get(email=request.POST['username']):
             user_form.is_active = False
             user = user_form.save()
             user.is_active = False
