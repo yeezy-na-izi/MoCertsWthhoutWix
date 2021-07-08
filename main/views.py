@@ -4,6 +4,7 @@ from django.conf import settings
 
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import PasswordChangeView as ChangePasswordView
 from django.contrib.auth.forms import PasswordChangeForm
@@ -24,7 +25,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView
 
 from .certificates.certificate_generator import generate_certificate
-from main.forms import UserForm
+from main.forms import UserForm, LoginUserForm
 from main.models import Account, Certificate
 from main.utils import token_generator
 from .names.names_generator import false_user
@@ -38,26 +39,32 @@ def register(request):
     if request.user.is_authenticated:
         return redirect('/')
     if request.method == 'POST':
-        user_form = UserForm(data=request.POST, files=request.FILES)
-        if user_form.is_valid() and not Account.objects.get(email=request.POST['username']):
-            user_form.is_active = False
-            user = user_form.save()
-            user.is_active = False
-            user.save()
+        if 'username' in request.POST:
+            form = LoginUserForm(data=request.POST)
+            if form.is_valid():
+                user = form.get_user()
+                login(request, user)
+        else:
+            user_form = UserForm(data=request.POST, files=request.FILES)
+            if user_form.is_valid() and not Account.objects.get(email=request.POST['email']):
+                user_form.is_active = False
+                user = user_form.save()
+                user.is_active = False
+                user.save()
 
-            user_id = urlsafe_base64_encode(force_bytes(user.email))
-            domain = get_current_site(request).domain
-            activate_url = f'http://{domain}/activate/{user_id}/{token_generator.make_token(user)}'
+                user_id = urlsafe_base64_encode(force_bytes(user.email))
+                domain = get_current_site(request).domain
+                activate_url = f'http://{domain}/activate/{user_id}/{token_generator.make_token(user)}'
 
-            email_subject = 'Подтверждение почты'
-            email_body = f'Привет, {user}, это активация аккаунта, перейди по ссылке чтобы ' \
-                         f'верефицировать свой аккаунт\n{activate_url}'
-            email = EmailMessage(email_subject, email_body, 'noreply@semycolon.com', [user.email], )
-            email.send(fail_silently=False)
+                email_subject = 'Подтверждение почты'
+                email_body = f'Привет, {user}, это активация аккаунта, перейди по ссылке чтобы ' \
+                             f'верефицировать свой аккаунт\n{activate_url}'
+                email = EmailMessage(email_subject, email_body, 'noreply@semycolon.com', [user.email], )
+                email.send(fail_silently=False)
 
-            return redirect('/login')
-        elif Account.objects.get(email=request.POST['email']):
-            messages.error(request, 'Вы уже были зарегистрированы')
+                return redirect('/login')
+            elif Account.objects.get(email=request.POST['email']):
+                messages.error(request, 'Вы уже были зарегистрированы')
     else:
         user_form = UserForm()
     return render(request, 'index.html', {})
