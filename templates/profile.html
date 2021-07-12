@@ -14,8 +14,8 @@
         </li>
     </ul>
     <p>
-        <a href="{% url 'changepassword' %}">Изменить пароль</a>
+        <a href="{% url 'changepassword' %}">{% trans 'Изменить пароль' %}</a>
     </p>
-    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'logout' %}">{% trans 'Logout' %}</a>
 </main>
 {% endblock %}

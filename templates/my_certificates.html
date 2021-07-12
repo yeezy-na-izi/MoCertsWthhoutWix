@@ -4,7 +4,9 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-    <span class="my-certs-disc">Для отправки сертификатов скопируйте ссылку и нажмите самолетик, выбрав социальную сеть. После того как человек получит и активирует его, статус меняется на получен, после оплаты на оплачен</span>
+    <span class="my-certs-disc">
+        {% trans 'Для отправки сертификатов скопируйте ссылку и нажмите самолетик, выбрав социальную сеть. После того как человек получит и активирует его, статус меняется на получен, после оплаты на оплачен' %}
+    </span>
 </div>
 <p></p>
 {% if certificates_1 %}
@@ -23,7 +25,7 @@
             {% if cert.get_status_display %}
             <span>{{ cert.get_status_display|lower }}</span>
             {% else %}
-            <span>не получен</span>
+            <span>{% trans 'не получен' %}</span>
             {% endif %}
             <div class="messagers">
                 <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
@@ -67,7 +69,7 @@
             {% if cert.get_status_display %}
             <span>{{ cert.get_status_display|lower }}</span>
             {% else %}
-            <span>не получен</span>
+            <span>{% trans 'не получен' %}</span>
             {% endif %}
             <div class="messagers">
                 <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
@@ -111,7 +113,7 @@
             {% if cert.get_status_display %}
             <span>{{ cert.get_status_display|lower }}</span>
             {% else %}
-            <span>не получен</span>
+            <span>{% trans 'не получен' %}</span>
             {% endif %}
             <div class="messagers">
                 <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
@@ -155,7 +157,7 @@
             {% if cert.get_status_display %}
             <span>{{ cert.get_status_display|lower }}</span>
             {% else %}
-            <span>не получен</span>
+            <span>{% trans 'не получен' %}</span>
             {% endif %}
             <div class="messagers">
                 <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
@@ -199,7 +201,7 @@
             {% if cert.get_status_display %}
             <span>{{ cert.get_status_display|lower }}</span>
             {% else %}
-            <span>не получен</span>
+            <span>{% trans 'не получен' %}</span>
             {% endif %}
             <div class="messagers">
                 <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
@@ -244,7 +246,7 @@
                 {% if cert.get_status_display %}
                 <span>{{ cert.get_status_display|lower }}</span>
                 {% else %}
-                <span>не получен</span>
+                <span>{% trans 'не получен' %}</span>
                 {% endif %}
                 <div class="messagers">
                     <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
@@ -289,7 +291,7 @@
             {% if cert.get_status_display %}
             <span>{{ cert.get_status_display|lower }}</span>
             {% else %}
-            <span>не получен</span>
+            <span>{% trans 'не получен' %}</span>
             {% endif %}
             <div class="messagers">
                 <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
@@ -333,7 +335,7 @@
             {% if cert.get_status_display %}
             <span>{{ cert.get_status_display|lower }}</span>
             {% else %}
-            <span>не получен</span>
+            <span>{% trans 'не получен' %}</span>
             {% endif %}
             <div class="messagers">
                 <a href="https://t.me/share?url={{ cert.get_absolute_url }}" target="_blank">
@@ -371,7 +373,5 @@
             document.execCommand("copy");
             document.body.removeChild(area);
         }
-
-
 </script>
 {% endblock %}

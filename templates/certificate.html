@@ -11,7 +11,7 @@
 <!--<meta property="og:image" content="{{ certificate.certificate_image.url }}">-->
 {% endblock %}
 {% block content %}
-<h1 class="h1-certificate">Congratulation! You are create new Certificate</h1>
+<h1 class="h1-certificate">{% trans 'Congratulation! You are create new Certificate' %}</h1>
 <div class="container">
     <div class="big_certificate">
         <img src="{{ certificate.certificate_image.url }}" alt="">
@@ -27,11 +27,11 @@
         </a>
         {% else %}
         {% if certificate.status == 'RECEIVED' %}
-        <span>Сертификат получен</span>
+        <span>{% trans 'Сертификат получен' %}</span>
         {% elif certificate.status == 'PAID' %}
-        <span>Сертификат оплачен</span>
+        <span>{% trans 'Сертификат оплачен' %}</span>
         {% else %}
-        <span>Скопируйте ссылку для отправки</span>
+        <span>{% trans 'Скопируйте ссылку для отправки' %}</span>
         {% endif %}
         {% endif %}
     </div>

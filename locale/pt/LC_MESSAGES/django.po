@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-12 12:21+0300\n"
+"POT-Creation-Date: 2021-07-12 12:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,36 +18,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: MoCertsWthhoutWix/settings.py:207
+#: MoCertsWthhoutWix/settings.py:206
 msgid "Russia"
 msgstr ""
 
-#: MoCertsWthhoutWix/settings.py:208
+#: MoCertsWthhoutWix/settings.py:207
 msgid "English"
 msgstr ""
 
-#: MoCertsWthhoutWix/settings.py:209
+#: MoCertsWthhoutWix/settings.py:208
 msgid "Germany"
 msgstr ""
 
-#: MoCertsWthhoutWix/settings.py:210
+#: MoCertsWthhoutWix/settings.py:209
 msgid "France"
 msgstr ""
 
-#: MoCertsWthhoutWix/settings.py:211
+#: MoCertsWthhoutWix/settings.py:210
 msgid "Spain"
 msgstr ""
 
-#: MoCertsWthhoutWix/settings.py:212
+#: MoCertsWthhoutWix/settings.py:211
 msgid "Italy"
 msgstr ""
 
-#: MoCertsWthhoutWix/settings.py:213
+#: MoCertsWthhoutWix/settings.py:212
 msgid "Portugal"
 msgstr ""
 
-#: templates/layout/base.html:57 templates/layout/base.html:154
-#: templates/layout/base.html:188
+#: templates/certificate.html:14
+msgid "Congratulation! You are create new Certificate"
+msgstr ""
+
+#: templates/certificate.html:30
+msgid "Сертификат получен"
+msgstr ""
+
+#: templates/certificate.html:32
+msgid "Сертификат оплачен"
+msgstr ""
+
+#: templates/certificate.html:34
+msgid "Скопируйте ссылку для отправки"
+msgstr ""
+
+#: templates/layout/base.html:57 templates/layout/base.html:155
+#: templates/layout/base.html:189 templates/layout/base.html:274
 msgid "Registration"
 msgstr ""
 
@@ -64,46 +80,82 @@ msgid "Register"
 msgstr ""
 
 #: templates/layout/base.html:103 templates/layout/base.html:123
-#: templates/layout/base.html:161
+#: templates/layout/base.html:162 templates/layout/base.html:281
 msgid "Login"
 msgstr ""
 
-#: templates/layout/base.html:137
+#: templates/layout/base.html:134
+msgid "Login from Facebook"
+msgstr ""
+
+#: templates/layout/base.html:138
 msgid "Login from Google"
 msgstr ""
 
-#: templates/layout/base.html:176 templates/layout/base.html:387
+#: templates/layout/base.html:177 templates/layout/base.html:378
 msgid "Home"
 msgstr ""
 
-#: templates/layout/base.html:179 templates/layout/base.html:390
+#: templates/layout/base.html:180 templates/layout/base.html:381
 msgid "Create Certificate"
 msgstr ""
 
-#: templates/layout/base.html:182 templates/layout/base.html:393
+#: templates/layout/base.html:183 templates/layout/base.html:384
 msgid "My Certificates"
 msgstr ""
 
-#: templates/layout/base.html:185 templates/layout/base.html:396
+#: templates/layout/base.html:186 templates/layout/base.html:387
 msgid "Instruction"
 msgstr ""
 
-#: templates/layout/base.html:428
+#: templates/layout/base.html:419
 msgid "г. Новосибирск, 630007"
 msgstr ""
 
-#: templates/layout/base.html:429
+#: templates/layout/base.html:420
 msgid "Железнодорожный район,"
 msgstr ""
 
-#: templates/layout/base.html:430
+#: templates/layout/base.html:421
+msgid "​Советская, 5​1"
+msgstr ""
+
+#: templates/layout/base.html:421
 msgid " офис 506"
 msgstr ""
 
-#: templates/layout/base.html:444 templates/layout/base.html:453
+#: templates/layout/base.html:436 templates/layout/base.html:445
 msgid "© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com"
 msgstr ""
 
 #: templates/manual.html:9
 msgid "Вступление"
 msgstr "cedscefgvf"
+
+#: templates/my_certificates.html:8
+msgid ""
+"Для отправки сертификатов скопируйте ссылку и нажмите самолетик, выбрав "
+"социальную сеть. После того как человек получит и активирует его, статус "
+"меняется на получен, после оплаты на оплачен"
+msgstr ""
+
+#: templates/my_certificates.html:28 templates/my_certificates.html:72
+#: templates/my_certificates.html:116 templates/my_certificates.html:160
+#: templates/my_certificates.html:204 templates/my_certificates.html:249
+#: templates/my_certificates.html:294 templates/my_certificates.html:338
+msgid "не получен"
+msgstr ""
+
+#: templates/profile.html:17
+msgid "Изменить пароль"
+msgstr ""
+
+#: templates/profile.html:19
+msgid "Logout"
+msgstr ""
+
+#: templates/select_certificate.html:7
+msgid ""
+"To create a new certificate just click on the image with the price you are "
+"interested in"
+msgstr ""
