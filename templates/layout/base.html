@@ -54,7 +54,7 @@
                     {% csrf_token %}
                     <img class="profile-photo_img" src="/static/img/register_bg.jpg" alt="" width="100%">
                     <div align="center" style="position: absolute; top: 15%; left: 35%;">
-                        <h3>Registration</h3>
+                        <h3>{% trans 'Registration' %}</h3>
                     </div>
                     <div class="profile-data-register">
                         <div class="d-flex flex-wrap mt-2" style="position: absolute; top: 20%; left: 10%;">
@@ -69,30 +69,30 @@
                         <div style="position: absolute; top: 45%; left: 30%;">
                             <p>
                                 <input type="text" name="first_name" maxlength="30" required="" id="id_first_name"
-                                       placeholder="Имя" style="width:100%;">
+                                       placeholder="{% trans 'Имя' %}" style="width:100%;">
                             </p>
                             <p>
                                 <input type="text" name="last_name" maxlength="30" required="" id="id_last_name"
-                                       placeholder="Фамилия" style="width:100%;">
+                                       placeholder="{% trans 'Фамилия' %}" style="width:100%;">
                             </p>
                             <p>
                                 <input type="email" name="email" maxlength="120" autofocus="" required="" id="id_email"
-                                       placeholder="email">
+                                       placeholder="Email">
                             </p>
                             <p>
                                 <input type="password" name="password1" autocomplete="new-password" required=""
-                                       id="id_password1" placeholder="password">
+                                       id="id_password1" placeholder="Password">
                             </p>
                             <p>
                                 <input type="password" name="password2" autocomplete="new-password" required=""
-                                       id="id_password2" placeholder="repet password">
+                                       id="id_password2" placeholder="repeat password">
                             </p>
                         </div>
                         <div style="position: absolute; top: 80%; left:10%; width:100%">
                             <div class="main__nav--item" style="width: 30%;">
                                 <button type="submit" class="btn"
                                         style="position: relative;top: -10px; color: #dba95e;">
-                                    Register
+                                    {% trans 'Register' %}
                                 </button>
 
                             </div>
@@ -100,7 +100,7 @@
                                  style="position: absolute; left:50%; top: 0%;width: 30%; max-height:100%">
                                 <a class="btn" href="" data-bs-toggle="modal" data-bs-dismiss="modal"
                                    style="position: relative;top: -10px; color: #dba95e;" data-bs-target="#login">
-                                    Login
+                                    {% trans 'Login' %}
                                 </a>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                     {% csrf_token %}
                     <img class="profile-photo_img" src="/static/img/register_bg.jpg" alt="" width="100%">
                     <div align="center" style="position: absolute; top: 15%; left: 44%;">
-                        <h3>Login</h3>
+                        <h3>{% trans 'Login' %}</h3>
                     </div>
                     <div class="profile-data-register">
                         <div class="d-flex flex-wrap mt-2" style="position: absolute; top: 20%; left: 10%;">
@@ -130,19 +130,21 @@
                         </div>
                         <div style="position: absolute; top: 45%; left: 30%;">
                             <p>
-                                <a href="{% provider_login_url 'facebook' method='oauth2' %}">Login from Facebook</a>
+                                <a href="{% provider_login_url 'facebook' method='oauth2' %}">
+                                    {% trans 'Login from Facebook' %}
+                                </a>
                             </p>
                             <p>
-                                <a href="/accounts/google/login/?process=login">Login from Google</a>
+                                <a href="/accounts/google/login/?process=login">{% trans 'Login from Google' %}</a>
                             </p>
                             <p>
                                 <input type="text" name="username" autofocus="" autocapitalize="none"
                                        autocomplete="username" maxlength="120" required="" id="id_login"
-                                       placeholder="email">
+                                       placeholder="Email">
                             </p>
                             <p>
                                 <input type="password" name="password" autocomplete="current-password" required=""
-                                       id="id_password" placeholder="password">
+                                       id="id_password" placeholder="Password">
                             </p>
                         </div>
                         <div style="position: absolute; top: 80%; left:10%; width:100%">
@@ -150,14 +152,14 @@
                                 <a class="btn" href="" data-bs-toggle="modal" data-bs-dismiss="modal"
                                    style="position: relative;top: -10px; color: #dba95e;"
                                    data-bs-target="#registration">
-                                    Registration
+                                    {% trans 'Registration' %}
                                 </a>
                             </div>
                             <div class="main__nav--item"
                                  style="position: absolute; left:50%; top: 0%;width: 30%; max-height:100%">
                                 <button type="submit" class="btn"
                                         style="position: relative;top: -10px; color: #dba95e;">
-                                    Login
+                                    {% trans 'Login' %}
                                 </button>
                             </div>
                         </div>
@@ -172,19 +174,19 @@
     <i class="fa fa-times close__nav" aria-hidden="true"></i>
     <ul class="nav__mobile--ul">
         <li class="nav__ul--item">
-            <a href="{% url 'main_page' %}">Home</a>
+            <a href="{% url 'main_page' %}">{% trans 'Home' %}</a>
         </li>
         <li class="nav__ul--item">
-            <a href="{% url 'select_certificate' %}">Create Certificate</a>
+            <a href="{% url 'select_certificate' %}">{% trans 'Create Certificate' %}</a>
         </li>
         <li class="nav__ul--item">
-            <a href="{% url 'my_certificates' %}">My Certificates</a>
+            <a href="{% url 'my_certificates' %}">{% trans 'My Certificates' %}</a>
         </li>
         <li class="nav__ul--item">
-            <a href="{% url 'manual' %}">Instruction</a>
+            <a href="{% url 'manual' %}">{% trans 'Instruction' %}</a>
         </li>
         <li class="nav__ul--item registration">
-            <a href="#">Registration</a>
+            <a href="#">{% trans 'Registration' %}</a>
         </li>
     </ul>
 
@@ -201,7 +203,7 @@
         <ul class="dropdown-menu">
             <li id="RU">
                 <img src="{% static 'img/RUS.png' %}" alt="RUS">
-                <a href="/ru/">ru</a>
+                <a href="/ru/">RU</a>
             </li>
             <li id="EN">
                 <img src="{% static 'img/GBR.png' %}" alt="GBR">
@@ -268,27 +270,17 @@
             </span>
         </a>
         {% else %}
-        <a data-bs-toggle="modal" data-bs-target="#registration"><span class="header__reg">Registration</span></a>
+        <a data-bs-toggle="modal" data-bs-target="#registration">
+            <span class="header__reg">{% trans 'Registration' %}</span>
+        </a>
         <!--        <a href="{% url 'registration' %}"><span class="header__reg">Registration</span></a>-->
         <div class="header__avatar">
             <img src="{% static 'img/avatar.webp' %}" alt="Avatar">
         </div>
-        <a data-bs-toggle="modal" data-bs-target="#login"><span class="header__reg">Login</span></a>
+        <a data-bs-toggle="modal" data-bs-target="#login">
+            <span class="header__reg">{% trans 'Login' %}</span>
+        </a>
         {% endif %}
-        <!--        <form action="{% url 'set_language' %}" method="post">-->
-        <!--            {% csrf_token %}-->
-        <!--            <input type="hidden" name="next" value="{{ redirct_to }}">-->
-        <!--            <select name="language">-->
-        <!--                <option value="RU" {% if LANGUAGE_CODE == 'ru' %} selected {% endif %}>ru</option>-->
-        <!--                <option value="EN" {% if LANGUAGE_CODE == 'en' %} selected {% endif %}>en</option>-->
-        <!--                <option value="DE" {% if LANGUAGE_CODE == 'de' %} selected {% endif %}>de</option>-->
-        <!--                <option value="FR" {% if LANGUAGE_CODE == 'fr' %} selected {% endif %}>fr</option>-->
-        <!--                <option value="ES" {% if LANGUAGE_CODE == 'es' %} selected {% endif %}>es</option>-->
-        <!--                <option value="IT" {% if LANGUAGE_CODE == 'it' %} selected {% endif %}>it</option>-->
-        <!--                <option value="PT" {% if LANGUAGE_CODE == 'pt' %} selected {% endif %}>pt</option>-->
-        <!--            </select>-->
-        <!--            <input type="submit" value="go">-->
-        <!--        </form>-->
         <div class="dropdown">
             <div class="select">
                 {% if LANGUAGE_CODE == 'ru' %}
@@ -383,16 +375,16 @@
     <nav class="main__nav">
         <ul class="main__nav--ul">
             <li class="main__nav--item">
-                <a href="{% url 'main_page' %}">Home</a>
+                <a href="{% url 'main_page' %}">{% trans 'Home' %}</a>
             </li>
             <li class="main__nav--item">
-                <a href="{% url 'select_certificate' %}">Create Certificate</a>
+                <a href="{% url 'select_certificate' %}">{% trans 'Create Certificate' %}</a>
             </li>
             <li class="main__nav--item">
-                <a href="{% url 'my_certificates' %}">My Certificates</a>
+                <a href="{% url 'my_certificates' %}">{% trans 'My Certificates' %}</a>
             </li>
             <li class="main__nav--item">
-                <a href="{% url 'manual' %}">Instruction</a>
+                <a href="{% url 'manual' %}">{% trans 'Instruction' %}</a>
             </li>
         </ul>
     </nav>
@@ -424,9 +416,10 @@
     <div class="footer__container">
         <section class="footer__contact">
             <p style="line-height: 0.7;">АО MoCersts ®</p>
-            <p style="line-height: 0.7;">г. Новосибирск, 630007</p>
-            <p style="line-height: 0.7;">Железнодорожный район,</p>
-            <p style="margin-bottom: 9px; line-height: 0.7;"><u>​Советская, 5​1</u> офис 506</p>
+            <p style="line-height: 0.7;">{% trans 'г. Новосибирск, 630007' %}</p>
+            <p style="line-height: 0.7;">{% trans 'Железнодорожный район,' %}</p>
+            <p style="margin-bottom: 9px; line-height: 0.7;"><u>{% trans '​Советская, 5​1' %}</u>{% trans ' офис 506' %}
+            </p>
         </section>
         <section class="footer__number">
             <img src="{% static 'img/number_poster.png' %}" alt="Poster" class="footer__number--img">
@@ -440,7 +433,7 @@
                 <a href="https://instagram.com/mocerts"><img src="{% static 'img/insta.webp' %}" alt="Instagram"></a>
                 <a href="https://facebook.com/mocerts"><img src="{% static 'img/fb.webp' %}" alt="Facebook"></a>
             </div>
-            <p>© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com</p>
+            <p>{% trans '© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com' %}</p>
         </section>
         <section class="footer__contact">
             <p style="line-height: 0.7;">Certificate of Financial state</p>
@@ -449,7 +442,7 @@
             <p class="edit__text" style="line-height: 0.7;">admin@mocerts.com &nbsp;</p>
         </section>
     </div>
-    <p class="footer__happy">© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com</p>
+    <p class="footer__happy">{% trans '© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com' %}</p>
 </footer>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="{% static 'js/script.js' %}"></script>
@@ -485,49 +478,5 @@
             };
             reader.readAsDataURL(input_photo.files[0]);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </html>

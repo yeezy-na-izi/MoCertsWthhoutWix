@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 17:26+0300\n"
+"POT-Creation-Date: 2021-07-12 12:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,95 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: MoCertsWthhoutWix/settings.py:207
+msgid "Russia"
+msgstr ""
+
+#: MoCertsWthhoutWix/settings.py:208
+msgid "English"
+msgstr ""
+
+#: MoCertsWthhoutWix/settings.py:209
+msgid "Germany"
+msgstr ""
+
+#: MoCertsWthhoutWix/settings.py:210
+msgid "France"
+msgstr ""
+
+#: MoCertsWthhoutWix/settings.py:211
+msgid "Spain"
+msgstr ""
+
+#: MoCertsWthhoutWix/settings.py:212
+msgid "Italy"
+msgstr ""
+
+#: MoCertsWthhoutWix/settings.py:213
+msgid "Portugal"
+msgstr ""
+
+#: templates/layout/base.html:57 templates/layout/base.html:155
+#: templates/layout/base.html:189
+msgid "Registration"
+msgstr ""
+
+#: templates/layout/base.html:72
+msgid "Имя"
+msgstr ""
+
+#: templates/layout/base.html:76
+msgid "Фамилия"
+msgstr ""
+
+#: templates/layout/base.html:95
+msgid "Register"
+msgstr ""
+
+#: templates/layout/base.html:103 templates/layout/base.html:123
+#: templates/layout/base.html:162
+msgid "Login"
+msgstr ""
+
+#: templates/layout/base.html:134
+msgid "Login from Facebook"
+msgstr ""
+
+#: templates/layout/base.html:138
+msgid "Login from Google"
+msgstr ""
+
+#: templates/layout/base.html:177 templates/layout/base.html:388
+msgid "Home"
+msgstr ""
+
+#: templates/layout/base.html:180 templates/layout/base.html:391
+msgid "Create Certificate"
+msgstr ""
+
+#: templates/layout/base.html:183 templates/layout/base.html:394
+msgid "My Certificates"
+msgstr ""
+
+#: templates/layout/base.html:186 templates/layout/base.html:397
+msgid "Instruction"
+msgstr ""
+
+#: templates/layout/base.html:429
+msgid "г. Новосибирск, 630007"
+msgstr ""
+
+#: templates/layout/base.html:430
+msgid "Железнодорожный район,"
+msgstr ""
+
+#: templates/layout/base.html:431
+msgid " офис 506"
+msgstr ""
+
+#: templates/layout/base.html:445 templates/layout/base.html:454
+msgid "© 2021 СЧАСТЬЕ ЕСТЬ. и оно уже БЛИЗКО!!! MoCerts.com"
+msgstr ""
 
 #: templates/manual.html:9
 msgid "Вступление"

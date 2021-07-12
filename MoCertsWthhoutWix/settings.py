@@ -76,8 +76,7 @@ ROOT_URLCONF = 'MoCertsWthhoutWix.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -175,29 +174,22 @@ THUMBNAIL_ALIASES = {
 }
 
 SOCIALACCOUNT_PROVIDERS = {
-    'telegram': {
-        'TOKEN': '1894571716:AAHzKrYdiGdWUX_XqSZhMB-KwqncCwqmUqA'
-    },
-    'facebook': {
-        'METHOD': 'oauth2',
-        'SCOPE': ['email', 'public_profile'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-        'INIT_PARAMS': {'cookie': True},
-        'FIELDS': [
-            'id',
-            'first_name',
-            'last_name',
-            'middle_name',
-            'name',
-            'name_format',
-            'picture',
-            'short_name'
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
         ],
-        'EXCHANGE_TOKEN': True,
-        'LOCALE_FUNC': 'path.to.callable',
-        'VERIFIED_EMAIL': False,
-        'VERSION': 'v7.0',
-    }
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    },
+    'facebook':
+        {
+            'SCOPE': ['email'],
+            'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+            'METHOD': 'oauth2',
+            'LOCALE_FUNC': lambda request: 'ru_RU'
+        }
 }
 
 SITE_ID = 1
