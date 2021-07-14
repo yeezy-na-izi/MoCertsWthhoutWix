@@ -67,7 +67,7 @@ msgstr ""
 #: templates/layout/base.html:57 templates/layout/base.html:155
 #: templates/layout/base.html:189 templates/layout/base.html:274
 msgid "Registration"
-msgstr "Регистрация"
+msgstr ""
 
 #: templates/layout/base.html:72
 msgid "Имя"

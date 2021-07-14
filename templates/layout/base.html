@@ -150,7 +150,7 @@
                         <div style="position: absolute; top: 80%; left:10%; width:100%">
                             <div class="main__nav--item" style="width: 30%;">
                                 <a class="btn" href="" data-bs-toggle="modal" data-bs-dismiss="modal"
-                                   style="position: relative;top: -10px; color: #dba95e;"
+                                   style="position: relative;top: -10px; color: #dba95e; text-decoration: none;"
                                    data-bs-target="#registration">
                                     {% trans 'Registration' %}
                                 </a>
@@ -174,19 +174,19 @@
     <i class="fa fa-times close__nav" aria-hidden="true"></i>
     <ul class="nav__mobile--ul">
         <li class="nav__ul--item">
-            <a href="{% url 'main_page' %}">{% trans 'Home' %}</a>
+            <a href="{% url 'main_page' %}" style="text-decoration: none;">{% trans 'Home' %}</a>
         </li>
         <li class="nav__ul--item">
-            <a href="{% url 'select_certificate' %}">{% trans 'Create Certificate' %}</a>
+            <a href="{% url 'select_certificate' %}" style="text-decoration: none;">{% trans 'Create Certificate' %}</a>
         </li>
         <li class="nav__ul--item">
-            <a href="{% url 'my_certificates' %}">{% trans 'My Certificates' %}</a>
+            <a href="{% url 'my_certificates' %}" style="text-decoration: none;">{% trans 'My Certificates' %}</a>
         </li>
         <li class="nav__ul--item">
-            <a href="{% url 'manual' %}">{% trans 'Instruction' %}</a>
+            <a href="{% url 'manual' %}" style="text-decoration: none;">{% trans 'Instruction' %}</a>
         </li>
         <li class="nav__ul--item registration">
-            <a href="#">{% trans 'Registration' %}</a>
+            <a href="#" style="text-decoration: none;">{% trans 'Registration' %}</a>
         </li>
     </ul>
 
@@ -258,13 +258,13 @@
             <span></span>
         </div>
         {% if user.is_authenticated %}
-        <a href="{% url 'profile' pk=user.pk %}">
+        <a href="{% url 'profile' pk=user.pk %}" style="text-decoration: none;">
             <span class="header__reg">{{ user.first_name }} {{ user.last_name }}</span>
         </a>
         <div class="header__avatar">
             <a href="{% url 'profile' pk=user.pk %}"><img src="{% static 'img/avatar.webp' %}" alt="Avatar"></a>
         </div>
-        <a href="{% url 'profile' pk=user.pk %}">
+        <a href="{% url 'profile' pk=user.pk %}" style="text-decoration: none;">
             <span class="header__sum">
             {{ user.balance }}$
             </span>
@@ -375,16 +375,18 @@
     <nav class="main__nav">
         <ul class="main__nav--ul">
             <li class="main__nav--item">
-                <a href="{% url 'main_page' %}">{% trans 'Home' %}</a>
+                <a href="{% url 'main_page' %}" style="text-decoration: none;">{% trans 'Home' %}</a>
             </li>
             <li class="main__nav--item">
-                <a href="{% url 'select_certificate' %}">{% trans 'Create Certificate' %}</a>
+                <a href="{% url 'select_certificate' %}" style="text-decoration: none;">
+                    {% trans 'Create Certificate' %}
+                </a>
             </li>
             <li class="main__nav--item">
-                <a href="{% url 'my_certificates' %}">{% trans 'My Certificates' %}</a>
+                <a href="{% url 'my_certificates' %}" style="text-decoration: none;">{% trans 'My Certificates' %}</a>
             </li>
             <li class="main__nav--item">
-                <a href="{% url 'manual' %}">{% trans 'Instruction' %}</a>
+                <a href="{% url 'manual' %}" style="text-decoration: none;">{% trans 'Instruction' %}</a>
             </li>
         </ul>
     </nav>
@@ -478,5 +480,8 @@
             };
             reader.readAsDataURL(input_photo.files[0]);
         }
+
+
+
 </script>
 </html>
